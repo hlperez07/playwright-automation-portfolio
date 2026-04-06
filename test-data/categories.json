@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Product Defects",
+    "description": "Assertion failures — application behaved unexpectedly",
+    "matchedStatuses": ["failed"],
+    "messageRegex": ".*Expected.*but received.*|.*expect\\(.*\\)\\.to.*|.*AssertionError.*"
+  },
+  {
+    "name": "Test Defects (Timeout)",
+    "description": "Test exceeded timeout — missing element or slow environment",
+    "matchedStatuses": ["broken"],
+    "messageRegex": ".*Timeout.*exceeded.*|.*waiting for.*|.*TimeoutError.*"
+  },
+  {
+    "name": "Test Defects (Network)",
+    "description": "Network failures preventing the test from reaching the app",
+    "matchedStatuses": ["broken"],
+    "messageRegex": ".*net::ERR_.*|.*ECONNREFUSED.*|.*ENOTFOUND.*|.*fetch failed.*"
+  },
+  {
+    "name": "Broken Tests",
+    "description": "Unexpected errors not caused by assertions",
+    "matchedStatuses": ["broken"],
+    "messageRegex": ".*"
+  }
+]
