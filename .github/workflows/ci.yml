@@ -33,9 +33,12 @@ jobs:
         run: npx playwright test
         env:
           CI: 'true'
-          ORANGEHRM_URL: ${{ secrets.ORANGEHRM_URL }}
-          ORANGEHRM_ADMIN_USER: ${{ secrets.ORANGEHRM_ADMIN_USER }}
-          ORANGEHRM_ADMIN_PASS: ${{ secrets.ORANGEHRM_ADMIN_PASS }}
+          # Fall back to the public OrangeHRM demo when secrets are not configured.
+          # Using || in expressions (not ??) because unset secrets evaluate to ''
+          # in GitHub Actions, and '' ?? fallback returns '' (not the fallback).
+          ORANGEHRM_URL: ${{ secrets.ORANGEHRM_URL || 'https://opensource-demo.orangehrmlive.com' }}
+          ORANGEHRM_ADMIN_USER: ${{ secrets.ORANGEHRM_ADMIN_USER || 'Admin' }}
+          ORANGEHRM_ADMIN_PASS: ${{ secrets.ORANGEHRM_ADMIN_PASS || 'admin123' }}
 
       - name: Upload test results
         uses: actions/upload-artifact@v4
