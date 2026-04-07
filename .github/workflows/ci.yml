@@ -75,7 +75,11 @@ jobs:
         if: always()
         run: |
           mkdir -p site/report
-          cp -r allure-history/. site/report/
+          # Allure history may be absent on first run or if generation failed — never block deploy
+          if [ -d allure-history ] && [ "$(ls -A allure-history 2>/dev/null)" ]; then
+            cp -r allure-history/. site/report/
+          fi
+          # Portfolio landing page always deploys, regardless of test outcome
           cp -r docs/. site/
 
       - name: Deploy to GitHub Pages
@@ -85,4 +89,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: site
           publish_branch: gh-pages
-          force_orphan: false
+          force_orphan: true
