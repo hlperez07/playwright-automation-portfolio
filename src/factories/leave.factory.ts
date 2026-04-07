@@ -5,7 +5,6 @@ import type { CreateLeaveRequestPayload } from '../types/leave.types';
  * Uses workerIndex to offset dates so parallel workers don't collide.
  */
 export function buildLeaveRequest(
-  empNumber: number,
   leaveTypeId: number,
   workerIndex: number,
   overrides?: Partial<CreateLeaveRequestPayload>,
@@ -20,7 +19,6 @@ export function buildLeaveRequest(
   const dateStr = baseDate.toISOString().split('T')[0];
 
   return {
-    empNumber,
     leaveTypeId,
     fromDate: dateStr,
     toDate: dateStr,

@@ -1,4 +1,6 @@
 import { type Page, type Locator } from '@playwright/test';
+import { OxdLocators, OrangeHrmCommon } from '../../locators/orangehrm.locators';
+import { AddCandidateLocators } from '../../locators/add-candidate.locators';
 
 export class AddCandidatePage {
   readonly heading: Locator;
@@ -10,17 +12,19 @@ export class AddCandidatePage {
   readonly successToast: Locator;
 
   constructor(readonly page: Page) {
-    this.heading = page.getByRole('heading', { name: 'Add Candidate' });
-    this.firstNameInput = page.getByPlaceholder('First Name');
-    this.lastNameInput = page.getByPlaceholder('Last Name');
-    this.emailInput = page.getByRole('textbox', { name: 'Email' });
+    this.heading = page.getByRole('heading', { name: AddCandidateLocators.headingName });
+    this.firstNameInput = page.getByPlaceholder(AddCandidateLocators.firstNamePlaceholder);
+    this.lastNameInput = page.getByPlaceholder(AddCandidateLocators.lastNamePlaceholder);
+    // OrangeHRM candidate form: Email and Contact Number both use 'Type here' placeholder.
+    // Email comes first in DOM order — first() targets the Email field.
+    this.emailInput = page.getByPlaceholder(AddCandidateLocators.emailPlaceholder).first();
     // OrangeHRM uses a custom oxd-select component for vacancy selection
     this.vacancyDropdown = page
-      .locator('.oxd-form-row')
-      .filter({ hasText: 'Vacancy' })
-      .locator('.oxd-select-text');
-    this.saveButton = page.getByRole('button', { name: 'Save' });
-    this.successToast = page.getByText('Successfully Saved');
+      .locator(OxdLocators.formRow)
+      .filter({ hasText: AddCandidateLocators.vacancyRowText })
+      .locator(OxdLocators.selectText);
+    this.saveButton = page.getByRole('button', { name: OrangeHrmCommon.saveButton });
+    this.successToast = page.getByText(OrangeHrmCommon.successToastText);
   }
 
   async fillCandidateForm(

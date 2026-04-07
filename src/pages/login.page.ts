@@ -1,4 +1,5 @@
 import { type Page, type Locator } from '@playwright/test';
+import { LoginLocators } from '../locators/login.locators';
 
 export class LoginPage {
   readonly usernameInput: Locator;
@@ -7,10 +8,9 @@ export class LoginPage {
   readonly errorAlert: Locator;
 
   constructor(readonly page: Page) {
-    // OrangeHRM uses placeholder attributes — getByPlaceholder is the correct semantic selector here
-    this.usernameInput = page.getByPlaceholder('Username');
-    this.passwordInput = page.getByPlaceholder('Password');
-    this.loginButton = page.getByRole('button', { name: 'Login' });
+    this.usernameInput = page.getByPlaceholder(LoginLocators.usernamePlaceholder);
+    this.passwordInput = page.getByPlaceholder(LoginLocators.passwordPlaceholder);
+    this.loginButton = page.getByRole('button', { name: LoginLocators.submitButton });
     this.errorAlert = page.getByRole('alert');
   }
 

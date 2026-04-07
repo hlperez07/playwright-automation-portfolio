@@ -1,4 +1,6 @@
 import { type Page, type Locator } from '@playwright/test';
+import { OxdLocators, OrangeHrmCommon } from '../../locators/orangehrm.locators';
+import { LeaveListLocators } from '../../locators/leave-list.locators';
 
 export class LeaveListPage {
   readonly heading: Locator;
@@ -13,14 +15,19 @@ export class LeaveListPage {
   readonly statusDropdown: Locator;
 
   constructor(readonly page: Page) {
-    this.heading = page.getByRole('heading', { name: 'Leave List' });
-    this.searchButton = page.getByRole('button', { name: 'Search' });
+    this.heading = page.getByRole('heading', { name: LeaveListLocators.headingName });
+    this.searchButton = page.getByRole('button', { name: OrangeHrmCommon.searchButton });
     this.recordsTable = page.getByRole('table');
-    this.noRecordsMessage = page.getByText('No Records Found');
+    // Scope to the span variant (content area) to avoid matching the transient
+    // "No Records Found" toast notification which OrangeHRM also shows at the same time.
+    this.noRecordsMessage = page.locator(OxdLocators.contentSpan).filter({ hasText: /^No Records Found$/ });
+    // Leave List form has two rows containing 'Show Leave with Status' text.
+    // first() selects the row with the status dropdown.
     this.statusDropdown = page
-      .locator('.oxd-form-row')
-      .filter({ hasText: 'Show Leave with Status' })
-      .locator('.oxd-select-text');
+      .locator(OxdLocators.formRow)
+      .filter({ hasText: LeaveListLocators.statusRowText })
+      .locator(OxdLocators.selectText)
+      .first();
   }
 
   async goto(): Promise<void> {

@@ -34,7 +34,8 @@ test.describe('Add Candidate', () => {
     );
     await addCandidatePage.submit();
 
-    await expect(page.getByText(firstName)).toBeVisible();
+    // firstName appears in multiple places (Application Stage + Candidate Profile).
+    await expect(page.getByText(firstName).first()).toBeVisible();
   });
 
   test('should search candidates by name', async ({ candidatesPage }) => {
@@ -54,18 +55,20 @@ test.describe('Add Candidate', () => {
     await candidatesPage.searchByName(firstName);
 
     const row = candidatesPage.getCandidateRow(firstName);
-    await row.getByRole('link').first().click();
+    // OrangeHRM candidates list Actions column: first button = eye (view), last = trash (delete).
+    await row.getByRole('button').first().click();
 
+    // OrangeHRM navigates to a "Shortlist Candidate" form page (not a dialog).
+    // Click Shortlist, then Save on the form to confirm.
     await page.getByRole('button', { name: 'Shortlist' }).click();
+    await page.getByRole('button', { name: 'Save' }).click();
 
-    // Confirm dialog if present
-    const confirmButton = page.getByRole('button', { name: 'Yes, Shortlist' });
-    if (await confirmButton.isVisible()) {
-      await confirmButton.click();
-    }
-
-    await expect(
-      page.getByText('Shortlisted').or(page.getByText('Successfully Saved')),
-    ).toBeVisible();
+    // After Save, OrangeHRM processes the request and redirects back to the candidate
+    // application page. Wait for all network activity to settle before asserting.
+    await page.waitForLoadState('networkidle', { timeout: 15000 });
+    // OrangeHRM renders "Status: Shortlisted" as a subtitle paragraph on the candidate
+    // application page. Using the full text avoids strict-mode violations from activity
+    // log entries like "Shortlisted for <vacancy> by <user>" also on the page.
+    await expect(page.getByText('Status: Shortlisted')).toBeVisible({ timeout: 15000 });
   });
 });

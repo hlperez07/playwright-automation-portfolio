@@ -1,4 +1,6 @@
 import { type Page, type Locator } from '@playwright/test';
+import { OrangeHrmCommon } from '../../locators/orangehrm.locators';
+import { EmployeeListLocators } from '../../locators/employee-list.locators';
 
 export class EmployeeListPage {
   readonly heading: Locator;
@@ -10,13 +12,16 @@ export class EmployeeListPage {
   readonly noRecordsMessage: Locator;
 
   constructor(readonly page: Page) {
-    this.heading = page.getByRole('heading', { name: 'Employee Information' });
-    this.employeeNameInput = page.getByPlaceholder('Type for hints...');
-    this.employeeIdInput = page.getByRole('textbox', { name: 'Employee Id' });
-    this.searchButton = page.getByRole('button', { name: 'Search' });
-    this.addButton = page.getByRole('button', { name: 'Add' });
+    this.heading = page.getByRole('heading', { name: EmployeeListLocators.headingName });
+    // Employee List has two 'Type for hints...' inputs (Employee Name + Supervisor Name).
+    // first() targets Employee Name — the top search field.
+    this.employeeNameInput = page.getByPlaceholder(OrangeHrmCommon.typeaheadPlaceholder).first();
+    this.employeeIdInput = page.getByRole('textbox', { name: EmployeeListLocators.employeeIdTextboxName });
+    this.searchButton = page.getByRole('button', { name: OrangeHrmCommon.searchButton });
+    this.addButton = page.getByRole('button', { name: OrangeHrmCommon.addButton });
     this.recordsTable = page.getByRole('table');
-    this.noRecordsMessage = page.getByText('No Records Found');
+    // OrangeHRM may render the "No Records Found" message more than once.
+    this.noRecordsMessage = page.getByText(OrangeHrmCommon.noRecordsText).first();
   }
 
   async goto(): Promise<void> {

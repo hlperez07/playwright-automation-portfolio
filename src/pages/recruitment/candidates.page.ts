@@ -1,4 +1,6 @@
 import { type Page, type Locator } from '@playwright/test';
+import { OrangeHrmCommon } from '../../locators/orangehrm.locators';
+import { CandidatesLocators } from '../../locators/candidates.locators';
 
 export class CandidatesPage {
   readonly heading: Locator;
@@ -9,12 +11,12 @@ export class CandidatesPage {
   readonly noRecordsMessage: Locator;
 
   constructor(readonly page: Page) {
-    this.heading = page.getByRole('heading', { name: 'Candidates' });
-    this.candidateNameInput = page.getByPlaceholder('Type for hints...');
-    this.searchButton = page.getByRole('button', { name: 'Search' });
-    this.addButton = page.getByRole('button', { name: 'Add' });
+    this.heading = page.getByRole('heading', { name: CandidatesLocators.headingName });
+    this.candidateNameInput = page.getByPlaceholder(OrangeHrmCommon.typeaheadPlaceholder);
+    this.searchButton = page.getByRole('button', { name: OrangeHrmCommon.searchButton });
+    this.addButton = page.getByRole('button', { name: OrangeHrmCommon.addButton });
     this.recordsTable = page.getByRole('table');
-    this.noRecordsMessage = page.getByText('No Records Found');
+    this.noRecordsMessage = page.getByText(OrangeHrmCommon.noRecordsText);
   }
 
   async goto(): Promise<void> {

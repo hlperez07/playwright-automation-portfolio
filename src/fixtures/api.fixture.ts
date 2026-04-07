@@ -12,7 +12,14 @@ export const test = base.extend<{}, WorkerFixtures>({
       const username = process.env.ORANGEHRM_ADMIN_USER ?? 'Admin';
       const password = process.env.ORANGEHRM_ADMIN_PASS ?? 'admin123';
 
-      const context = await playwright.request.newContext({ baseURL });
+      // Pass an explicit empty storageState so the request context starts with no
+      // cookies — without this, E2E workers inherit the browser context's
+      // storageState (the authenticated 'orangehrm' session cookie), causing
+      // GET /auth/login to redirect to /dashboard instead of returning the login page.
+      const context = await playwright.request.newContext({
+        baseURL,
+        storageState: { cookies: [], origins: [] },
+      });
       const client = new ApiClient(context, baseURL);
       await client.authenticate(username, password);
 

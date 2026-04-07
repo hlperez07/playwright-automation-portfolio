@@ -2,7 +2,7 @@
 
 ![CI](https://github.com/hlperez07/playwright-automation-portfolio/actions/workflows/ci.yml/badge.svg)
 
-[View Allure Report](https://hlperez07.github.io/playwright-automation-portfolio/)
+[View Portfolio](https://hlperez07.github.io/playwright-automation-portfolio/) · [View Allure Report](https://hlperez07.github.io/playwright-automation-portfolio/report/)
 
 ---
 
@@ -88,7 +88,7 @@ npm run allure:open         # open local report in browser
 
 ## CI/CD
 
-The pipeline runs on every push and pull request targeting `main`, and can also be triggered manually via the GitHub Actions UI (`workflow_dispatch`).
+The pipeline is triggered manually via the GitHub Actions UI (`workflow_dispatch`).
 
 Steps:
 1. Installs dependencies and the Chromium browser

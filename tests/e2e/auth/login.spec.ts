@@ -5,6 +5,10 @@ const BASE_URL =
 const LOGIN_URL = `${BASE_URL}/web/index.php/auth/login`;
 
 test.describe('Login', () => {
+  // The e2e project loads storageState (authenticated session) at context level.
+  // Override it here so these tests always start unauthenticated.
+  test.use({ storageState: { cookies: [], origins: [] } });
+
   test.beforeEach(async ({ page }) => {
     await page.goto(LOGIN_URL);
   });
@@ -47,7 +51,10 @@ test.describe('Login', () => {
 
     await expect(page.getByRole('heading', { name: 'Dashboard' })).toBeVisible();
 
-    await page.getByRole('banner').getByText('Admin').click();
+    // The user profile dropdown is rendered as <a role="button"> in the top banner.
+    // We cannot rely on the display name ('Admin') because the shared demo may
+    // rename the Admin account. Use the structural CSS class as a last resort.
+    await page.locator('.oxd-userdropdown-tab').click();
     await page.getByRole('menuitem', { name: 'Logout' }).click();
 
     await expect(page).toHaveURL(/\/auth\/login/);

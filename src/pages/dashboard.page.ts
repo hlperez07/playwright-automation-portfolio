@@ -1,12 +1,13 @@
 import { type Page, type Locator } from '@playwright/test';
+import { DashboardLocators } from '../locators/dashboard.locators';
 
 export class DashboardPage {
   readonly heading: Locator;
   readonly logoutMenuItem: Locator;
 
   constructor(readonly page: Page) {
-    this.heading = page.getByRole('heading', { name: 'Dashboard' });
-    this.logoutMenuItem = page.getByRole('menuitem', { name: 'Logout' });
+    this.heading = page.getByRole('heading', { name: DashboardLocators.headingName });
+    this.logoutMenuItem = page.getByRole('menuitem', { name: DashboardLocators.logoutMenuItemName });
   }
 
   async goto(): Promise<void> {
@@ -19,7 +20,7 @@ export class DashboardPage {
 
   async logout(): Promise<void> {
     // OrangeHRM places the user dropdown in the top-right banner; click the user name to open it
-    await this.page.getByRole('banner').getByText('Admin').click();
+    await this.page.getByRole('banner').getByText(DashboardLocators.userBannerText).click();
     await this.logoutMenuItem.click();
   }
 }

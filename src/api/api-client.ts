@@ -17,31 +17,48 @@ export class ApiClient {
   ) {}
 
   /**
-   * Authenticates against OrangeHRM by posting form-encoded credentials.
-   * Playwright's APIRequestContext stores the session cookie automatically.
-   * After login, attempts to extract a CSRF token from response headers.
+   * Authenticates against OrangeHRM.
+   *
+   * OrangeHRM embeds a CSRF token (_token) as a hidden field in the login
+   * form. Without it, the POST to auth/validate is rejected silently and the
+   * session is never established — all subsequent API calls return 401.
+   *
+   * Flow:
+   *   1. GET /auth/login  → extract _token from HTML
+   *   2. POST /auth/validate with credentials + _token (form-encoded)
+   *   3. Verify we landed on the dashboard (not back on login)
    */
   async authenticate(username: string, password: string): Promise<void> {
+    // Step 1: fetch login page to get the CSRF token
+    const loginPageResponse = await this.request.get(
+      `${this.baseURL}/web/index.php/auth/login`,
+    );
+    const html = await loginPageResponse.text();
+
+    // OrangeHRM v5 embeds the CSRF token as a Vue prop in the format:
+    //   :token="&quot;TOKEN_VALUE&quot;"
+    const tokenMatch = html.match(/:token="&quot;([^&"]+)&quot;"/);
+    const csrfToken = tokenMatch ? tokenMatch[1] : '';
+
+    if (!csrfToken) {
+      throw new Error('Authentication failed: could not extract CSRF token from login page HTML');
+    }
+
+    // Step 2: submit credentials with CSRF token
     const response = await this.request.post(
       `${this.baseURL}/web/index.php/auth/validate`,
       {
-        form: { username, password },
+        form: { username, password, _token: csrfToken },
       },
     );
 
-    if (!response.ok()) {
-      const body = await response.text();
+    // Step 3: verify we're on the dashboard (not redirected back to login)
+    // A failed login returns 302 → /auth/login; a successful one → /dashboard
+    const finalUrl = response.url();
+    if (finalUrl.includes('/auth/login')) {
       throw new Error(
-        `Authentication failed: ${response.status()} - ${body.slice(0, 200)}`,
+        `Authentication failed: credentials rejected or CSRF token invalid. Final URL: ${finalUrl}`,
       );
-    }
-
-    // Attempt to extract CSRF token from response headers.
-    // OrangeHRM may set it as x-csrf-token or embed it in the HTML.
-    // Currently unused for API v2 requests — see class-level CSRF note.
-    const csrfHeader = response.headers()['x-csrf-token'];
-    if (csrfHeader) {
-      this.csrfToken = csrfHeader;
     }
   }
 

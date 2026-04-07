@@ -53,7 +53,8 @@ export interface LeaveEntitlement {
 }
 
 export interface CreateLeaveRequestPayload {
-  empNumber: number;
+  // empNumber is NOT accepted — POST /leave/leave-requests creates a request
+  // for the currently authenticated user only.
   leaveTypeId: number;
   fromDate: string;
   toDate: string;

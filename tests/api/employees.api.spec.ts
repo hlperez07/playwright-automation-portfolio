@@ -41,7 +41,8 @@ test.describe('Employees API', () => {
       await employeesApi.getByEmpNumber(9999999);
     } catch (error) {
       errorCaught = true;
-      expect(String(error)).toMatch(/404|Not Found/i);
+      // OrangeHRM returns 422 (Invalid Parameter) for non-existent empNumbers
+      expect(String(error)).toMatch(/404|422|Not Found|Invalid Parameter/i);
     }
 
     expect(errorCaught).toBe(true);
@@ -59,7 +60,8 @@ test.describe('Employees API', () => {
       await employeesApi.getByEmpNumber(created.empNumber);
     } catch (error) {
       errorCaught = true;
-      expect(String(error)).toMatch(/404|Not Found/i);
+      // OrangeHRM returns 422 (Invalid Parameter) for deleted/non-existent empNumbers
+      expect(String(error)).toMatch(/404|422|Not Found|Invalid Parameter/i);
     }
 
     expect(errorCaught).toBe(true);
