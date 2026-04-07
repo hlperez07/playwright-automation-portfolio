@@ -34,6 +34,9 @@ test.describe('Add Candidate', () => {
     );
     await addCandidatePage.submit();
 
+    // OrangeHRM redirects to the candidate application page after save.
+    // Wait for networkidle so the page fully renders before asserting.
+    await page.waitForLoadState('networkidle', { timeout: 15000 }).catch(() => {});
     // firstName appears in multiple places (Application Stage + Candidate Profile).
     await expect(page.getByText(firstName).first()).toBeVisible();
   });
