@@ -16,8 +16,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -55,7 +53,7 @@ jobs:
           path: allure-results/
           retention-days: 30
 
-      - name: Get Allure history
+      - name: Get previous Allure history
         uses: actions/checkout@v4
         if: always()
         continue-on-error: true
@@ -63,23 +61,37 @@ jobs:
           ref: gh-pages
           path: gh-pages
 
-      - name: Generate Allure report
-        uses: simple-elf/allure-report-action@v1.9
+      - name: Restore Allure history for trend
         if: always()
-        with:
-          allure_results: allure-results
-          allure_history: allure-history
-          keep_reports: 20
+        run: |
+          if [ -d gh-pages/report/history ]; then
+            mkdir -p allure-results/history
+            cp -r gh-pages/report/history/. allure-results/history/
+          fi
+
+      - name: Install Allure CLI
+        if: always()
+        run: npm install -g allure-commandline --quiet
+
+      - name: Generate Allure report
+        if: always()
+        working-directory: ${{ github.workspace }}
+        run: |
+          if [ -d allure-results ] && [ "$(ls -A allure-results 2>/dev/null)" ]; then
+            allure generate allure-results --clean -o allure-history
+          else
+            mkdir -p allure-history
+            echo '<html><body style="font-family:sans-serif;padding:2rem"><h1>No test results</h1><p>Run the pipeline with tests to generate a report.</p></body></html>' > allure-history/index.html
+          fi
 
       - name: Build GitHub Pages site
         if: always()
+        working-directory: ${{ github.workspace }}
         run: |
           mkdir -p site/report
-          # Allure history may be absent on first run or if generation failed — never block deploy
           if [ -d allure-history ] && [ "$(ls -A allure-history 2>/dev/null)" ]; then
             cp -r allure-history/. site/report/
           fi
-          # Portfolio landing page always deploys, regardless of test outcome
           cp -r docs/. site/
 
       - name: Deploy to GitHub Pages
