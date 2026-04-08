@@ -5,6 +5,7 @@ type WorkerFixtures = {
   apiClient: ApiClient;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export const test = base.extend<{}, WorkerFixtures>({
   apiClient: [
     async ({ playwright }, use) => {

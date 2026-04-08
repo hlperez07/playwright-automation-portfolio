@@ -1,19 +1,19 @@
 #!/usr/bin/env node
 'use strict';
 
-const fs   = require('fs');
+const fs = require('fs');
 const path = require('path');
 
 const RESULTS_FILE = path.join(process.cwd(), 'test-results', 'results.json');
-const OUTPUT_DIR   = path.join(process.cwd(), 'custom-report');
-const OUTPUT_FILE  = path.join(OUTPUT_DIR, 'index.html');
+const OUTPUT_DIR = path.join(process.cwd(), 'custom-report');
+const OUTPUT_FILE = path.join(OUTPUT_DIR, 'index.html');
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
 function fmtDuration(ms) {
   if (!ms || ms < 0) return '—';
-  if (ms < 1000)    return `${ms}ms`;
-  if (ms < 60_000)  return `${(ms / 1000).toFixed(1)}s`;
+  if (ms < 1000) return `${ms}ms`;
+  if (ms < 60_000) return `${(ms / 1000).toFixed(1)}s`;
   const m = Math.floor(ms / 60_000);
   const s = Math.round((ms % 60_000) / 1000);
   return `${m}m ${s}s`;
@@ -21,16 +21,16 @@ function fmtDuration(ms) {
 
 function getModule(file) {
   if (!file) return 'Other';
-  if (file.includes('/auth/') || file.includes('auth.'))        return 'Auth';
-  if (file.includes('/pim/'))                                    return 'PIM';
-  if (file.includes('/leave/'))                                  return 'Leave';
-  if (file.includes('/recruitment/'))                            return 'Recruitment';
+  if (file.includes('/auth/') || file.includes('auth.')) return 'Auth';
+  if (file.includes('/pim/')) return 'PIM';
+  if (file.includes('/leave/')) return 'Leave';
+  if (file.includes('/recruitment/')) return 'Recruitment';
   return 'Other';
 }
 
 function getType(project) {
-  if (project === 'api')   return 'API';
-  if (project === 'e2e')   return 'E2E';
+  if (project === 'api') return 'API';
+  if (project === 'e2e') return 'E2E';
   if (project === 'setup') return 'Setup';
   return project ?? 'Unknown';
 }
@@ -38,11 +38,16 @@ function getType(project) {
 // Maps Playwright test.status to display values
 function mapStatus(status) {
   switch (status) {
-    case 'expected':   return 'passed';
-    case 'unexpected': return 'failed';
-    case 'flaky':      return 'flaky';
-    case 'skipped':    return 'skipped';
-    default:           return status ?? 'unknown';
+    case 'expected':
+      return 'passed';
+    case 'unexpected':
+      return 'failed';
+    case 'flaky':
+      return 'flaky';
+    case 'skipped':
+      return 'skipped';
+    default:
+      return status ?? 'unknown';
   }
 }
 
@@ -52,40 +57,44 @@ function flattenSuite(suite, inheritedFile = '') {
   const rows = [];
   const file = suite.file || inheritedFile;
 
-  for (const spec of (suite.specs ?? [])) {
-    for (const test of (spec.tests ?? [])) {
+  for (const spec of suite.specs ?? []) {
+    for (const test of spec.tests ?? []) {
       if (test.projectName === 'setup') continue; // skip auth setup
 
-      const results  = test.results ?? [];
-      const lastRes  = results[results.length - 1] ?? {};
+      const results = test.results ?? [];
+      const lastRes = results[results.length - 1] ?? {};
       const duration = results.reduce((sum, r) => sum + (r.duration ?? 0), 0);
 
       // Extract trace attachment — generated on first retry, so search ALL results,
       // not just lastRes (which may be a later retry without a trace).
       let tracePath = null;
       for (const r of results) {
-        const traceAtt = (r.attachments ?? []).find(a => a.name === 'trace');
+        const traceAtt = (r.attachments ?? []).find((a) => a.name === 'trace');
         if (traceAtt && traceAtt.path) {
           const idx = traceAtt.path.indexOf('test-results/');
-          if (idx !== -1) { tracePath = traceAtt.path.slice(idx); break; }
+          if (idx !== -1) {
+            tracePath = traceAtt.path.slice(idx);
+            break;
+          }
         }
       }
 
       rows.push({
-        file:    file,
-        title:   spec.title,
+        file: file,
+        githubUrl: `https://github.com/hlperez07/playwright-automation-portfolio/blob/main/${file}`,
+        title: spec.title,
         project: test.projectName,
-        status:  mapStatus(test.status),
+        status: mapStatus(test.status),
         duration,
         retries: Math.max(0, results.length - 1),
-        module:  getModule(file),
-        type:    getType(test.projectName),
+        module: getModule(file),
+        type: getType(test.projectName),
         tracePath, // null when no trace exists (local runs / passed tests)
       });
     }
   }
 
-  for (const child of (suite.suites ?? [])) {
+  for (const child of suite.suites ?? []) {
     rows.push(...flattenSuite(child, file));
   }
 
@@ -103,29 +112,29 @@ try {
 }
 
 const tests = [];
-for (const suite of (raw.suites ?? [])) {
+for (const suite of raw.suites ?? []) {
   tests.push(...flattenSuite(suite));
 }
 
-const rawStats  = raw.stats ?? {};
-const total     = tests.length;
-const passed    = tests.filter(t => t.status === 'passed').length;
-const failed    = tests.filter(t => t.status === 'failed').length;
-const flaky     = tests.filter(t => t.status === 'flaky').length;
-const skipped   = tests.filter(t => t.status === 'skipped').length;
-const passRate  = total > 0 ? Math.round(((passed + flaky) / total) * 100) : 0;
-const totalDur  = rawStats.duration ?? tests.reduce((s, t) => s + t.duration, 0);
+const rawStats = raw.stats ?? {};
+const total = tests.length;
+const passed = tests.filter((t) => t.status === 'passed').length;
+const failed = tests.filter((t) => t.status === 'failed').length;
+const flaky = tests.filter((t) => t.status === 'flaky').length;
+const skipped = tests.filter((t) => t.status === 'skipped').length;
+const passRate = total > 0 ? Math.round(((passed + flaky) / total) * 100) : 0;
+const totalDur = rawStats.duration ?? tests.reduce((s, t) => s + t.duration, 0);
 
-const MODULES   = ['Auth', 'PIM', 'Leave', 'Recruitment'];
-const moduleBreakdown = MODULES.map(m => {
-  const mt = tests.filter(t => t.module === m);
+const MODULES = ['Auth', 'PIM', 'Leave', 'Recruitment'];
+const moduleBreakdown = MODULES.map((m) => {
+  const mt = tests.filter((t) => t.module === m);
   return {
-    name:   m,
-    total:  mt.length,
-    passed: mt.filter(t => t.status === 'passed' || t.status === 'flaky').length,
-    failed: mt.filter(t => t.status === 'failed').length,
-    e2e:    mt.filter(t => t.type === 'E2E').length,
-    api:    mt.filter(t => t.type === 'API').length,
+    name: m,
+    total: mt.length,
+    passed: mt.filter((t) => t.status === 'passed' || t.status === 'flaky').length,
+    failed: mt.filter((t) => t.status === 'failed').length,
+    e2e: mt.filter((t) => t.type === 'E2E').length,
+    api: mt.filter((t) => t.type === 'API').length,
   };
 });
 
@@ -141,12 +150,23 @@ const TRACES_BASE = process.env.PAGES_BASE_URL
   ? `${process.env.PAGES_BASE_URL.replace(/\/$/, '')}/traces`
   : 'https://hlperez07.github.io/playwright-automation-portfolio/traces';
 
-const DATA_JSON = JSON.stringify({ tests, moduleBreakdown, tracesBase: TRACES_BASE, stats: {
-  total, passed, failed, flaky, skipped, passRate,
-  duration: totalDur, runDate,
-}});
+const DATA_JSON = JSON.stringify({
+  tests,
+  moduleBreakdown,
+  tracesBase: TRACES_BASE,
+  stats: {
+    total,
+    passed,
+    failed,
+    flaky,
+    skipped,
+    passRate,
+    duration: totalDur,
+    runDate,
+  },
+});
 
-const html = /* html */`<!DOCTYPE html>
+const html = /* html */ `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -307,12 +327,29 @@ const html = /* html */`<!DOCTYPE html>
     /* ── Charts ──────────────────────────────────────────────────────────── */
     .charts-grid {
       display: grid;
-      grid-template-columns: 280px 1fr 1fr;
+      grid-template-columns: 280px 1fr 260px;
       gap: 1.25rem;
       align-items: stretch;
     }
-    @media (max-width: 860px) { .charts-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 960px) { .charts-grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 560px) { .charts-grid { grid-template-columns: 1fr; } }
+
+    .trend-loading {
+      font-size: 0.78rem;
+      color: var(--text-3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+    .trend-empty {
+      font-size: 0.78rem;
+      color: var(--text-3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
 
     .chart-card {
       background: var(--surface);
@@ -425,6 +462,8 @@ const html = /* html */`<!DOCTYPE html>
 
     .test-title { color: var(--text); font-size: 0.85rem; line-height: 1.4; }
     .test-file  { font-size: 0.72rem; color: var(--text-3); font-family: 'JetBrains Mono', monospace; margin-top: 0.2rem; }
+    .source-link { color: var(--text-3); text-decoration: none; transition: color var(--transition); }
+    .source-link:hover { color: var(--blue); }
 
     .badge {
       display: inline-flex;
@@ -563,6 +602,12 @@ const html = /* html */`<!DOCTYPE html>
         <div class="chart-card">
           <div class="chart-card-title">E2E vs API by module</div>
           <div class="chart-wrap"><canvas id="chart-types"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-card-title">Pass rate trend</div>
+          <div class="chart-wrap" id="trend-wrap">
+            <div class="trend-loading">Loading history…</div>
+          </div>
         </div>
       </div>
     </div>
@@ -734,6 +779,61 @@ const html = /* html */`<!DOCTYPE html>
       },
     });
 
+    // ── Trend history chart ───────────────────────────────────────────────
+    async function loadTrendHistory() {
+      const wrap = document.getElementById('trend-wrap');
+      try {
+        const res = await fetch('./history.json');
+        if (!res.ok) throw new Error('Not found');
+        const history = await res.json();
+        if (!history || history.length < 2) {
+          wrap.innerHTML = '<div class="trend-empty">Not enough data yet</div>';
+          return;
+        }
+        const recent = history.slice(-20);
+        const labels = recent.map(r => {
+          const d = new Date(r.date);
+          return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        });
+        const data = recent.map(r => r.passRate);
+        const canvas = Object.assign(document.createElement('canvas'), { id: 'chart-trend' });
+        wrap.innerHTML = '';
+        wrap.appendChild(canvas);
+        new Chart(canvas, {
+          type: 'line',
+          data: {
+            labels,
+            datasets: [{
+              label: 'Pass %',
+              data,
+              borderColor: '#3fb950',
+              backgroundColor: 'rgba(63,185,80,0.08)',
+              fill: true,
+              tension: 0.35,
+              pointRadius: 3,
+              pointHoverRadius: 5,
+              pointBackgroundColor: '#3fb950',
+            }],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              x: { grid: { color: '#21262d' }, ticks: { color: '#8b949e', maxTicksLimit: 6 } },
+              y: { min: 0, max: 100, grid: { color: '#21262d' }, ticks: { color: '#8b949e', callback: v => v + '%', stepSize: 25 } },
+            },
+            plugins: {
+              legend: { display: false },
+              tooltip: { callbacks: { label: ctx => ' Pass rate: ' + ctx.parsed.y + '%' } },
+            },
+          },
+        });
+      } catch (_) {
+        wrap.innerHTML = '<div class="trend-empty">Trend data unavailable</div>';
+      }
+    }
+    loadTrendHistory();
+
     // ── Table rendering ────────────────────────────────────────────────────
     const BADGE_TYPE = { E2E: 'badge-e2e', API: 'badge-api', Setup: 'badge-setup' };
     const BADGE_STATUS = { passed:'badge-passed', failed:'badge-failed', flaky:'badge-flaky', skipped:'badge-skipped' };
@@ -795,7 +895,9 @@ const html = /* html */`<!DOCTYPE html>
           <td><span class="badge \${BADGE_TYPE[t.type] || ''}">\${t.module}</span></td>
           <td>
             <div class="test-title">\${t.title}</div>
-            <div class="test-file">\${shortFile(t.file)}</div>
+            <div class="test-file">
+              <a href="\${t.githubUrl}" target="_blank" rel="noopener" class="source-link" title="View source on GitHub">\${shortFile(t.file)}</a>
+            </div>
           </td>
           <td><span class="badge \${BADGE_TYPE[t.type] || ''}">\${t.type}</span></td>
           <td><span class="badge \${BADGE_STATUS[t.status] || ''}">\${STATUS_ICON[t.status] || ''} \${t.status}</span></td>

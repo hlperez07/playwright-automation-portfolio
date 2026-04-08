@@ -10,13 +10,23 @@
     "test:debug": "playwright test --debug",
     "report": "playwright show-report",
     "allure:generate": "allure generate allure-results -o allure-report --clean",
-    "allure:open": "allure open allure-report"
+    "allure:open": "allure open allure-report",
+    "lint": "eslint 'src/**/*.ts' 'tests/**/*.ts' --max-warnings 0",
+    "lint:fix": "eslint 'src/**/*.ts' 'tests/**/*.ts' --fix",
+    "format": "prettier --write 'src/**/*.ts' 'tests/**/*.ts' 'playwright.config.ts' 'tsconfig.json'",
+    "format:check": "prettier --check 'src/**/*.ts' 'tests/**/*.ts' 'playwright.config.ts' 'tsconfig.json'",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run lint && npm run typecheck"
   },
   "devDependencies": {
     "@playwright/test": "^1.52.0",
     "@types/node": "^25.5.2",
+    "@typescript-eslint/eslint-plugin": "^8.18.0",
+    "@typescript-eslint/parser": "^8.18.0",
     "allure-playwright": "^3.6.0",
     "dotenv": "^16.4.0",
+    "eslint": "^8.57.0",
+    "prettier": "^3.4.0",
     "typescript": "^5.4.0"
   },
   "engines": {

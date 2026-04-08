@@ -1,8 +1,15 @@
 # Playwright Automation Portfolio
 
-![CI](https://github.com/hlperez07/playwright-automation-portfolio/actions/workflows/ci.yml/badge.svg)
+<!-- Badges -->
 
-[View Portfolio](https://hlperez07.github.io/playwright-automation-portfolio/) · [View Allure Report](https://hlperez07.github.io/playwright-automation-portfolio/report/)
+[![CI](https://github.com/hlperez07/playwright-automation-portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/hlperez07/playwright-automation-portfolio/actions)
+[![Tests](https://img.shields.io/badge/tests-32%20total-ff6b35?style=flat-square&logo=playwright&logoColor=white)](https://hlperez07.github.io/playwright-automation-portfolio/report/)
+[![Pass Rate](https://img.shields.io/badge/pass%20rate-72%25-3fb950?style=flat-square&logo=playwright&logoColor=white)](https://hlperez07.github.io/playwright-automation-portfolio/report/)
+[![E2E](https://img.shields.io/badge/E2E-20-ff6b35?style=flat-square&logo=playwright&logoColor=white)](https://hlperez07.github.io/playwright-automation-portfolio/report/)
+[![API](https://img.shields.io/badge/API-12-58a6ff?style=flat-square&logo=playwright&logoColor=white)](https://hlperez07.github.io/playwright-automation-portfolio/report/)
+[![License](https://img.shields.io/badge/license-MIT-8b949e?style=flat-square)](LICENSE)
+
+[Portfolio ↗](https://hlperez07.github.io/playwright-automation-portfolio/) · [Custom Report ↗](https://hlperez07.github.io/playwright-automation-portfolio/report/) · [Allure ↗](https://hlperez07.github.io/playwright-automation-portfolio/allure/)
 
 ---
 
@@ -38,25 +45,25 @@ playwright-automation-portfolio/
 
 ## Tech Stack
 
-| Technology | Version | Purpose |
-|---|---|---|
-| Playwright Test | ^1.52 | Test runner + browser automation + API testing |
-| TypeScript | ^5.4 | Static typing, strict mode |
-| Allure Report | 3.6.0 | Test reporting with trend history |
-| GitHub Actions | — | CI pipeline |
-| GitHub Pages | — | Hosted Allure report |
+| Technology      | Version | Purpose                                        |
+| --------------- | ------- | ---------------------------------------------- |
+| Playwright Test | ^1.52   | Test runner + browser automation + API testing |
+| TypeScript      | ^5.4    | Static typing, strict mode                     |
+| Allure Report   | 3.6.0   | Test reporting with trend history              |
+| GitHub Actions  | —       | CI pipeline                                    |
+| GitHub Pages    | —       | Hosted Allure report                           |
 
 ---
 
 ## Test Coverage
 
-| Module | E2E | API | Total |
-|---|---|---|---|
-| Authentication | 5 | 0 | 5 |
-| PIM (Employees) | 6 | 5 | 11 |
-| Leave Management | 4 | 3 | 7 |
-| Recruitment | 5 | 4 | 9 |
-| **Total** | **20** | **12** | **32** |
+| Module           | E2E    | API    | Total  |
+| ---------------- | ------ | ------ | ------ |
+| Authentication   | 5      | 0      | 5      |
+| PIM (Employees)  | 6      | 5      | 11     |
+| Leave Management | 4      | 3      | 7      |
+| Recruitment      | 5      | 4      | 9      |
+| **Total**        | **20** | **12** | **32** |
 
 ---
 
@@ -88,14 +95,17 @@ npm run allure:open         # open local report in browser
 
 ## CI/CD
 
-The pipeline is triggered manually via the GitHub Actions UI (`workflow_dispatch`).
+The pipeline runs automatically on every push and pull request to `main`.
 
 Steps:
-1. Installs dependencies and the Chromium browser
-2. Runs all 32 tests (E2E + API) against the OrangeHRM demo instance
-3. Uploads raw test results and Allure results as artifacts (retained 30 days)
-4. Generates an Allure report with trend history from the `gh-pages` branch
-5. Deploys the report to GitHub Pages automatically
+
+1. Lint and typecheck (blocks the test job on failure)
+2. Installs dependencies and the Chromium browser
+3. Runs all 32 tests (E2E + API) against the OrangeHRM demo instance
+4. Uploads raw test results and Allure results as artifacts (retained 30 days)
+5. Generates an Allure report with trend history from the `gh-pages` branch
+6. Generates a custom HTML report with pass-rate trend chart and source links
+7. Deploys everything to GitHub Pages automatically
 
 Report and test results are always generated and deployed — even when tests fail — so failures are always visible and traceable.
 
