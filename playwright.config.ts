@@ -15,8 +15,16 @@ export default defineConfig({
   },
   outputDir: 'test-results',
   reporter: process.env.CI
-    ? [['line'], ['allure-playwright', { resultsDir: 'allure-results' }]]
-    : [['line'], ['html', { open: 'never' }]],
+    ? [
+        ['line'],
+        ['allure-playwright', { resultsDir: 'allure-results' }],
+        ['json', { outputFile: 'test-results/results.json' }],
+      ]
+    : [
+        ['line'],
+        ['html', { open: 'never' }],
+        ['json', { outputFile: 'test-results/results.json' }],
+      ],
   use: {
     baseURL: process.env.ORANGEHRM_URL ?? 'https://opensource-demo.orangehrmlive.com',
     viewport: { width: 1280, height: 720 },

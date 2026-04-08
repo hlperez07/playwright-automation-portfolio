@@ -67,9 +67,9 @@ jobs:
       - name: Restore Allure history for trend
         if: always()
         run: |
-          if [ -d gh-pages/report/history ]; then
+          if [ -d gh-pages/allure/history ]; then
             mkdir -p allure-results/history
-            cp -r gh-pages/report/history/. allure-results/history/
+            cp -r gh-pages/allure/history/. allure-results/history/
           fi
 
       - name: Install Allure CLI
@@ -84,16 +84,25 @@ jobs:
             allure generate allure-results --clean -o allure-history
           else
             mkdir -p allure-history
-            echo '<html><body style="font-family:sans-serif;padding:2rem"><h1>No test results</h1><p>Run the pipeline with tests to generate a report.</p></body></html>' > allure-history/index.html
+            echo '<html><body style="font-family:sans-serif;padding:2rem"><h1>No test results</h1></body></html>' > allure-history/index.html
           fi
+
+      - name: Generate custom HTML report
+        if: always()
+        run: node scripts/generate-report.js
 
       - name: Build GitHub Pages site
         if: always()
         working-directory: ${{ github.workspace }}
         run: |
-          mkdir -p site/report
+          mkdir -p site/report site/allure
+          # Custom report → /report/ (main experience)
+          if [ -d custom-report ] && [ "$(ls -A custom-report 2>/dev/null)" ]; then
+            cp -r custom-report/. site/report/
+          fi
+          # Allure → /allure/ (detailed traces)
           if [ -d allure-history ] && [ "$(ls -A allure-history 2>/dev/null)" ]; then
-            cp -r allure-history/. site/report/
+            cp -r allure-history/. site/allure/
           fi
           cp -r docs/. site/
 
