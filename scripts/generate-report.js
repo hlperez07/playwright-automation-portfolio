@@ -700,7 +700,8 @@ const html = /* html */`<!DOCTYPE html>
     const STATUS_ICON  = { passed: '✓', failed: '✗', flaky: '⚡', skipped: '—' };
 
     function shortFile(file) {
-      return file.replace(/.*tests\//, 'tests/');
+      const idx = file.indexOf('tests/');
+      return idx !== -1 ? file.slice(idx) : file;
     }
 
     let currentFilter = 'all';
