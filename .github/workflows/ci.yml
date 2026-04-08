@@ -90,12 +90,14 @@ jobs:
       - name: Generate custom HTML report
         if: always()
         run: node scripts/generate-report.js
+        env:
+          PAGES_BASE_URL: 'https://hlperez07.github.io/playwright-automation-portfolio'
 
       - name: Build GitHub Pages site
         if: always()
         working-directory: ${{ github.workspace }}
         run: |
-          mkdir -p site/report site/allure
+          mkdir -p site/report site/allure site/traces
           # Custom report → /report/ (main experience)
           if [ -d custom-report ] && [ "$(ls -A custom-report 2>/dev/null)" ]; then
             cp -r custom-report/. site/report/
@@ -103,6 +105,10 @@ jobs:
           # Allure → /allure/ (detailed traces)
           if [ -d allure-history ] && [ "$(ls -A allure-history 2>/dev/null)" ]; then
             cp -r allure-history/. site/allure/
+          fi
+          # Trace files → /traces/ (for trace.playwright.dev deep links)
+          if [ -d test-results ] && [ "$(ls -A test-results 2>/dev/null)" ]; then
+            cp -r test-results/. site/traces/
           fi
           cp -r docs/. site/
 

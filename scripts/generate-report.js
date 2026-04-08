@@ -60,6 +60,14 @@ function flattenSuite(suite, inheritedFile = '') {
       const lastRes  = results[results.length - 1] ?? {};
       const duration = results.reduce((sum, r) => sum + (r.duration ?? 0), 0);
 
+      // Extract trace attachment path (only present in CI with retries)
+      const traceAtt = (lastRes.attachments ?? []).find(a => a.name === 'trace');
+      let tracePath = null;
+      if (traceAtt && traceAtt.path) {
+        const idx = traceAtt.path.indexOf('test-results/');
+        tracePath = idx !== -1 ? traceAtt.path.slice(idx) : null;
+      }
+
       rows.push({
         file:    file,
         title:   spec.title,
@@ -69,6 +77,7 @@ function flattenSuite(suite, inheritedFile = '') {
         retries: Math.max(0, results.length - 1),
         module:  getModule(file),
         type:    getType(test.projectName),
+        tracePath, // null when no trace exists (local runs / passed tests)
       });
     }
   }
@@ -123,7 +132,13 @@ const runDate = rawStats.startTime
 
 // ── Build HTML ────────────────────────────────────────────────────────────────
 
-const DATA_JSON = JSON.stringify({ tests, moduleBreakdown, stats: {
+// Base URL for the GitHub Pages traces directory.
+// Set PAGES_BASE_URL in CI to the site root (e.g. https://hlperez07.github.io/playwright-automation-portfolio).
+const TRACES_BASE = process.env.PAGES_BASE_URL
+  ? `${process.env.PAGES_BASE_URL.replace(/\/$/, '')}/traces`
+  : 'https://hlperez07.github.io/playwright-automation-portfolio/traces';
+
+const DATA_JSON = JSON.stringify({ tests, moduleBreakdown, tracesBase: TRACES_BASE, stats: {
   total, passed, failed, flaky, skipped, passRate,
   duration: totalDur, runDate,
 }});
@@ -430,6 +445,27 @@ const html = /* html */`<!DOCTYPE html>
     .retries-cell  { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--text-3); text-align: center; }
     .retries-cell.has-retries { color: var(--yellow); font-weight: 600; }
 
+    .trace-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: var(--r);
+      font-size: 0.72rem;
+      font-weight: 500;
+      background: color-mix(in srgb, var(--blue) 12%, transparent);
+      color: var(--blue);
+      border: 1px solid color-mix(in srgb, var(--blue) 25%, transparent);
+      text-decoration: none;
+      transition: all var(--transition);
+      white-space: nowrap;
+    }
+    .trace-btn:hover {
+      background: color-mix(in srgb, var(--blue) 22%, transparent);
+      border-color: var(--blue);
+    }
+    .trace-na { color: var(--text-3); font-size: 0.78rem; }
+
     .empty-state {
       padding: 3rem;
       text-align: center;
@@ -559,6 +595,7 @@ const html = /* html */`<!DOCTYPE html>
               <th data-col="status">Status <span class="sort-arrow">↕</span></th>
               <th data-col="duration">Duration <span class="sort-arrow">↕</span></th>
               <th data-col="retries">Retries <span class="sort-arrow">↕</span></th>
+              <th>Trace</th>
             </tr>
           </thead>
           <tbody id="table-body"></tbody>
@@ -761,6 +798,7 @@ const html = /* html */`<!DOCTYPE html>
           <td><span class="badge \${BADGE_STATUS[t.status] || ''}">\${STATUS_ICON[t.status] || ''} \${t.status}</span></td>
           <td class="duration-cell">\${fmtDur(t.duration)}</td>
           <td class="retries-cell \${t.retries > 0 ? 'has-retries' : ''}">\${t.retries > 0 ? t.retries + '↺' : '0'}</td>
+          <td>\${t.tracePath ? '<a class="trace-btn" href="https://trace.playwright.dev/?trace=' + REPORT.tracesBase + '/' + t.tracePath.replace('test-results/', '') + '" target="_blank" rel="noopener">&#128269; Trace</a>' : '<span class="trace-na">—</span>'}</td>
         </tr>
       \`).join('');
     }
