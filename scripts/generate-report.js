@@ -60,12 +60,15 @@ function flattenSuite(suite, inheritedFile = '') {
       const lastRes  = results[results.length - 1] ?? {};
       const duration = results.reduce((sum, r) => sum + (r.duration ?? 0), 0);
 
-      // Extract trace attachment path (only present in CI with retries)
-      const traceAtt = (lastRes.attachments ?? []).find(a => a.name === 'trace');
+      // Extract trace attachment — generated on first retry, so search ALL results,
+      // not just lastRes (which may be a later retry without a trace).
       let tracePath = null;
-      if (traceAtt && traceAtt.path) {
-        const idx = traceAtt.path.indexOf('test-results/');
-        tracePath = idx !== -1 ? traceAtt.path.slice(idx) : null;
+      for (const r of results) {
+        const traceAtt = (r.attachments ?? []).find(a => a.name === 'trace');
+        if (traceAtt && traceAtt.path) {
+          const idx = traceAtt.path.indexOf('test-results/');
+          if (idx !== -1) { tracePath = traceAtt.path.slice(idx); break; }
+        }
       }
 
       rows.push({
