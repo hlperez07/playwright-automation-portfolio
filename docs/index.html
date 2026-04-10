@@ -3046,20 +3046,49 @@
         .map((a) => document.querySelector(a.getAttribute('href')))
         .filter(Boolean);
 
+      // Track every visible section and its current intersectionRatio.
+      // This eliminates the race condition: instead of "last entry wins",
+      // we always pick the section with the highest visibility ratio.
+      const visibleSections = new Map();
+
       const navObserver = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              navLinks.forEach((a) => a.classList.remove('active'));
-              const active = [...navLinks].find(
-                (a) => a.getAttribute('href') === '#' + entry.target.id,
-              );
-              if (active) active.classList.add('active');
+              visibleSections.set(entry.target.id, entry.intersectionRatio);
+            } else {
+              visibleSections.delete(entry.target.id);
             }
           });
+
+          if (visibleSections.size === 0) return;
+
+          // Pick section with highest ratio — deterministic, not order-dependent
+          const mostVisibleId = [...visibleSections.entries()].reduce((a, b) =>
+            a[1] >= b[1] ? a : b,
+          )[0];
+
+          navLinks.forEach((a) => a.classList.remove('active'));
+          const active = [...navLinks].find(
+            (a) => a.getAttribute('href') === '#' + mostVisibleId,
+          );
+          if (active) active.classList.add('active');
         },
-        { threshold: 0.3, rootMargin: '-60px 0px -40% 0px' },
+        {
+          // Multiple thresholds: observer fires more often → smoother tracking
+          threshold: [0, 0.1, 0.2, 0.3, 0.5, 0.75, 1.0],
+          // Reduced bottom margin (20% instead of 40%) for short sections on mobile
+          rootMargin: '-60px 0px -20% 0px',
+        },
       );
+
+      // Immediate visual feedback on click — don't wait for scroll to settle
+      navLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+          navLinks.forEach((a) => a.classList.remove('active'));
+          link.classList.add('active');
+        });
+      });
 
       sections.forEach((s) => navObserver.observe(s));
     </script>
