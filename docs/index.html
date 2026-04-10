@@ -56,7 +56,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..700;1,14..32,400&family=JetBrains+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..700;1,14..32,400&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@600;700&display=swap"
       rel="stylesheet"
     />
 
@@ -122,6 +122,12 @@
           font-weight: 600;
           letter-spacing: -0.02em;
         }
+
+        h1,
+        h2 {
+          font-family: 'Space Grotesk', 'Inter', sans-serif;
+        }
+
         h2 {
           font-size: clamp(1.5rem, 3vw, 2rem);
         }
@@ -147,6 +153,25 @@
         ::selection {
           background: var(--accent-dim);
         }
+
+        /* ─── Skip link (WCAG 2.4.1) ───────────────────────────────────────────── */
+        .skip-link {
+          position: absolute;
+          top: -100%;
+          left: 1rem;
+          background: var(--accent);
+          color: #fff;
+          padding: 0.5rem 1.25rem;
+          border-radius: 0 0 var(--r) var(--r);
+          font-size: 0.85rem;
+          font-weight: 600;
+          z-index: 9999;
+          text-decoration: none !important;
+          transition: top 0.2s;
+        }
+        .skip-link:focus {
+          top: 0;
+        }
       }
 
       /* ─── Layout ─────────────────────────────────────────────────────────────── */
@@ -158,6 +183,10 @@
 
         section {
           padding-block: clamp(4rem, 8vw, 7rem);
+        }
+
+        section + section {
+          border-top: 1px solid var(--border);
         }
 
         .section-label {
@@ -565,6 +594,98 @@
           background: var(--surface);
           color: var(--text-2);
           border: 1px solid var(--border);
+        }
+
+        /* --- Hero depth gradient (FASE 8) --------------------------------------- */
+        .hero-depth {
+          position: absolute;
+          inset: 0;
+          background:
+            radial-gradient(ellipse 55% 55% at 85% 55%, color-mix(in srgb, var(--blue) 7%, transparent), transparent),
+            radial-gradient(ellipse 40% 40% at 15% 80%, color-mix(in srgb, var(--accent) 5%, transparent), transparent);
+          pointer-events: none;
+          z-index: 0;
+        }
+
+        /* --- Hero word rotation (FASE 3) ---------------------------------------- */
+        .hero-word {
+          display: inline-block;
+          color: var(--accent);
+          font-weight: 700;
+          position: relative;
+          transition: opacity 0.28s ease, transform 0.28s ease;
+        }
+
+        .hero-word.fading {
+          opacity: 0;
+          transform: translateY(-8px);
+        }
+
+        /* --- Trust bar (FASE 2) -------------------------------------------------- */
+        .trust-bar {
+          border-top: 1px solid var(--border);
+          border-bottom: 1px solid var(--border);
+          padding-block: 0.7rem;
+          display: flex;
+          align-items: center;
+          overflow: hidden;
+          background: color-mix(in srgb, var(--surface) 40%, transparent);
+        }
+
+        .trust-label {
+          flex-shrink: 0;
+          font-size: 0.62rem;
+          font-weight: 700;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          color: var(--text-3);
+          padding-inline: 1.5rem 1.25rem;
+          border-right: 1px solid var(--border);
+          margin-right: 1.25rem;
+          white-space: nowrap;
+        }
+
+        .trust-track-wrap {
+          flex: 1;
+          overflow: hidden;
+        }
+
+        .trust-track {
+          display: flex;
+          gap: 0.6rem;
+          width: max-content;
+          animation: marquee 28s linear infinite;
+        }
+
+        .trust-bar:hover .trust-track {
+          animation-play-state: paused;
+        }
+
+        .trust-chip {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.35rem;
+          padding: 0.3rem 0.85rem;
+          border-radius: 999px;
+          font-size: 0.73rem;
+          font-weight: 500;
+          background: var(--surface);
+          border: 1px solid var(--border);
+          color: var(--text-2);
+          white-space: nowrap;
+          transition: border-color var(--transition), color var(--transition);
+          cursor: default;
+        }
+
+        .trust-chip--current {
+          background: color-mix(in srgb, var(--green) 8%, var(--surface));
+          border-color: color-mix(in srgb, var(--green) 30%, var(--border));
+          color: var(--green);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .trust-track { animation: none; }
+          .hero-word { transition: none; }
         }
 
         /* --- Stats -------------------------------------------------------------- */
@@ -1843,6 +1964,11 @@
           }
         }
 
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+
         .reveal {
           opacity: 0;
           transform: translateY(24px);
@@ -1869,6 +1995,8 @@
     </style>
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- ── Navigation ─────────────────────────────────────────────────────────── -->
     <nav class="nav" aria-label="Main navigation">
       <div class="nav-inner">
@@ -1904,6 +2032,7 @@
     <header class="hero" id="hero">
       <div class="hero-grid" aria-hidden="true"></div>
       <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-depth" aria-hidden="true"></div>
       <div class="container hero-content">
         <div class="hero-badge">
           <span class="dot" aria-hidden="true"></span>
@@ -1911,8 +2040,8 @@
         </div>
         <h1 class="hero-title">Henry Perez</h1>
         <p class="hero-sub">
-          I build automation frameworks that give teams fast, honest feedback.
-          <br />E2E, API, and performance QA strategies for banking, media, AdTech, and retail.
+          I build <span class="hero-word" id="hero-word" data-words='["automation frameworks","E2E pipelines","CI quality gates","test suites","API contracts"]'>automation frameworks</span> that give teams fast, honest feedback.<br />
+          Senior SDET — banking · media · AdTech · retail.
         </p>
         <div class="hero-avatar-wrap" aria-hidden="true">
           <img class="hero-avatar" src="henry.jpg" alt="Henry Perez" width="140" height="140" />
@@ -1967,8 +2096,33 @@
       </div>
     </header>
 
+    <!-- ── Trust bar ─────────────────────────────────────────────────────────── -->
+    <div class="trust-bar" aria-label="Companies and clients I have worked with">
+      <span class="trust-label" aria-hidden="true">Experience</span>
+      <div class="trust-track-wrap">
+        <div class="trust-track" aria-hidden="true">
+          <!-- First set -->
+          <span class="trust-chip trust-chip--current">● Globant</span>
+          <span class="trust-chip trust-chip--current">● Santander UK</span>
+          <span class="trust-chip">CNN U.S. Elections</span>
+          <span class="trust-chip">Kinesso</span>
+          <span class="trust-chip">BairesDev</span>
+          <span class="trust-chip">Xcede</span>
+          <span class="trust-chip">Indra</span>
+          <!-- Duplicate for seamless loop -->
+          <span class="trust-chip trust-chip--current">● Globant</span>
+          <span class="trust-chip trust-chip--current">● Santander UK</span>
+          <span class="trust-chip">CNN U.S. Elections</span>
+          <span class="trust-chip">Kinesso</span>
+          <span class="trust-chip">BairesDev</span>
+          <span class="trust-chip">Xcede</span>
+          <span class="trust-chip">Indra</span>
+        </div>
+      </div>
+    </div>
+
     <!-- ── Stats ──────────────────────────────────────────────────────────────── -->
-    <section class="stats" aria-label="Test suite statistics">
+    <section class="stats" aria-label="Test suite statistics" id="main-content">
       <div class="stats-grid container">
         <div class="stat">
           <div class="stat-icon" aria-hidden="true">🧪</div>
@@ -2250,7 +2404,7 @@
     </section>
 
     <!-- ── Testing Strategy ───────────────────────────────────────────────────── -->
-    <section id="strategy">
+    <section id="strategy" aria-label="Testing Strategy">
       <div class="container">
         <p class="section-label reveal">Testing Strategy</p>
         <h2 class="section-title reveal reveal-delay-1">Built for real projects,<br />not demos</h2>
@@ -2380,7 +2534,7 @@
     </section>
 
     <!-- ── Architecture ───────────────────────────────────────────────────────── -->
-    <section id="architecture">
+    <section id="architecture" aria-label="Framework Architecture">
       <div class="container">
         <p class="section-label reveal">Architecture</p>
         <h2 class="section-title reveal reveal-delay-1">Three-layer design</h2>
@@ -2470,7 +2624,7 @@
     </section>
 
     <!-- ── Skills ─────────────────────────────────────────────────────────────── -->
-    <section id="skills" style="padding-top: 0">
+    <section id="skills" style="padding-top: 0" aria-label="Skills and Tools">
       <div class="container">
         <p class="section-label reveal">Skills</p>
         <h2 class="section-title reveal reveal-delay-1">Full toolkit</h2>
@@ -2667,7 +2821,7 @@
     </section>
 
     <!-- ── CI/CD ──────────────────────────────────────────────────────────────── -->
-    <section id="ci">
+    <section id="ci" aria-label="CI/CD Pipeline">
       <div class="container">
         <p class="section-label reveal">CI/CD Pipeline</p>
         <h2 class="section-title reveal reveal-delay-1">From push to report</h2>
@@ -2870,6 +3024,21 @@
           el.style.setProperty('--my', ((e.clientY - rect.top) / rect.height) * 100 + '%');
         });
       });
+
+      /* ── Hero word rotation ─────────────────────────────────────────────────── */
+      const heroWord = document.getElementById('hero-word');
+      if (heroWord && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const heroWords = JSON.parse(heroWord.dataset.words);
+        let heroIdx = 0;
+        setInterval(() => {
+          heroWord.classList.add('fading');
+          setTimeout(() => {
+            heroIdx = (heroIdx + 1) % heroWords.length;
+            heroWord.textContent = heroWords[heroIdx];
+            heroWord.classList.remove('fading');
+          }, 280);
+        }, 2800);
+      }
 
       /* ── Active nav link via IntersectionObserver ───────────────────────────── */
       const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');

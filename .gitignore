@@ -7,3 +7,7 @@ playwright-report/
 .env
 dist/
 custom-report/
+html examples/
+.DS_Store
+CLAUDE.md
+skills/
