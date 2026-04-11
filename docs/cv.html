@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Henry Perez - CV</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sidebar-bg: #1a1a2e;
+            --main-bg: #ffffff;
+            --accent: #ff6b35;
+            --text-main: #1a1a2e;
+            --text-secondary: #6b7280;
+            --text-light: #ffffff;
+            --text-sidebar-secondary: #9ca3af;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #525659; /* Viewer background */
+            display: flex;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        @page {
+            size: A4;
+            margin: 7mm 0 7mm 0;
+        }
+
+        @page :first {
+            margin: 0;
+        }
+
+        .cv-container {
+            width: 210mm;
+            min-height: 594mm;
+            background-color: var(--main-bg);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            display: flex;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 32%;
+            background-color: var(--sidebar-bg);
+            color: var(--text-light);
+            padding: 30px 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            box-shadow: 0 -20mm 0 0 var(--sidebar-bg);
+        }
+
+        .photo-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 5px;
+        }
+
+        .photo {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 3px solid var(--accent);
+            object-fit: cover;
+        }
+
+        .sidebar-section {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .sidebar-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 4px;
+            margin-bottom: 4px;
+        }
+
+        .contact-item {
+            margin-bottom: 8px;
+        }
+
+        .sidebar-label {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 9px;
+            text-transform: uppercase;
+            color: var(--text-sidebar-secondary);
+            margin-bottom: 2px;
+        }
+
+        .sidebar-value, .sidebar-value a {
+            font-family: 'Inter', sans-serif;
+            font-size: 9.5px;
+            color: var(--text-light);
+            text-decoration: none;
+            word-break: break-all;
+            line-height: 1.4;
+        }
+
+        .skill-group-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 9.5px;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 6px;
+        }
+
+        .pill-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 6px;
+        }
+
+        .pill {
+            background-color: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 4px 8px;
+            font-size: 9px;
+            color: var(--text-light);
+        }
+
+        .lang-item, .edu-item {
+            margin-bottom: 6px;
+        }
+
+        .lang-name, .edu-title {
+            font-weight: 600;
+            font-size: 9.5px;
+            color: var(--text-light);
+        }
+
+        .lang-level, .edu-school {
+            font-size: 9.5px;
+            color: var(--text-sidebar-secondary);
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            width: 68%;
+            padding: 40px 35px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        header {
+            margin-bottom: 5px;
+        }
+
+        .name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 32px;
+            text-transform: uppercase;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+            margin-bottom: 4px;
+        }
+
+        .title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--accent);
+        }
+
+        .main-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 4px;
+            margin-bottom: 12px;
+        }
+
+        .about-text {
+            font-size: 10px;
+            color: var(--text-main);
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        /* Work Experience Styles */
+        .job {
+            margin-bottom: 16px;
+            page-break-inside: avoid;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 6px;
+        }
+
+        .job-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .company {
+            font-weight: 700;
+            font-size: 11px;
+            color: var(--text-main);
+        }
+
+        .role {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 9px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .date {
+            font-family: 'Inter', sans-serif;
+            font-size: 9px;
+            color: var(--text-secondary);
+            white-space: nowrap;
+        }
+
+        .job-tasks {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .job-tasks li {
+            position: relative;
+            padding-left: 14px;
+            margin-bottom: 5px;
+            font-size: 10px;
+            color: var(--text-main);
+            line-height: 1.5;
+        }
+
+        .job-tasks li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Sub-projects */
+        .sub-project {
+            margin-top: 8px;
+            margin-bottom: 6px;
+        }
+
+        .sub-project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+
+        .sub-project-title {
+            font-weight: 600;
+            font-size: 10px;
+            color: var(--text-main);
+        }
+
+        /* Print Media Query */
+        @media print {
+            body {
+                background: none;
+                margin: 0;
+                padding: 0;
+            }
+            .cv-container {
+                margin: 0;
+                box-shadow: none;
+                width: 100%;
+                height: 100%;
+                page-break-after: auto;
+            }
+            /* Ensures sidebar background stretches */
+            .sidebar {
+                background-color: var(--sidebar-bg) !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="cv-container">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="photo-container">
+            <!-- Ensure henry.jpg is in the same directory as this HTML file -->
+            <img src="henry.jpg" alt="Henry Perez" class="photo" onerror="this.style.display='none'">
+        </div>
+
+        <section class="sidebar-section">
+            <h2 class="sidebar-title">Contact</h2>
+            <div class="contact-item">
+                <span class="sidebar-label">Email</span>
+                <a href="mailto:hlperez@gmail.com" class="sidebar-value">hlperez@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <span class="sidebar-label">LinkedIn</span>
+                <a href="https://www.linkedin.com/in/hlperez/" target="_blank" class="sidebar-value">linkedin.com/in/hlperez/</a>
+            </div>
+            <div class="contact-item">
+                <span class="sidebar-label">GitHub</span>
+                <a href="https://github.com/hlperez07" target="_blank" class="sidebar-value">github.com/hlperez07</a>
+            </div>
+            <div class="contact-item">
+                <span class="sidebar-label">Portfolio</span>
+                <a href="https://hlperez07.github.io/playwright-automation-portfolio/" target="_blank" class="sidebar-value">hlperez07.github.io/playwright-automation-portfolio/</a>
+            </div>
+        </section>
+
+        <section class="sidebar-section">
+            <h2 class="sidebar-title">Skills</h2>
+            
+            <h3 class="skill-group-title">Automation & Testing</h3>
+            <div class="pill-group">
+                <span class="pill">Playwright</span>
+                <span class="pill">Cypress</span>
+                <span class="pill">Selenium WebDriver</span>
+                <span class="pill">Shift-left Testing</span>
+                <span class="pill">Postman</span>
+                <span class="pill">Bruno Collection</span>
+                <span class="pill">API Testing</span>
+                <span class="pill">Performance Testing (JMeter)</span>
+                <span class="pill">BDD / Cucumber</span>
+            </div>
+
+            <h3 class="skill-group-title">Programming</h3>
+            <div class="pill-group">
+                <span class="pill">TypeScript</span>
+                <span class="pill">JavaScript</span>
+                <span class="pill">Java</span>
+            </div>
+
+            <h3 class="skill-group-title">Tools & Process</h3>
+            <div class="pill-group">
+                <span class="pill">Jira</span>
+                <span class="pill">X-Ray</span>
+                <span class="pill">Zephyr</span>
+                <span class="pill">TestRail</span>
+                <span class="pill">Agile / Scrum / Kanban</span>
+                <span class="pill">GitHub Actions</span>
+                <span class="pill">GitLab CI</span>
+                <span class="pill">Jenkins</span>
+                <span class="pill">GitHub Copilot</span>
+            </div>
+        </section>
+
+        <section class="sidebar-section">
+            <h2 class="sidebar-title">Languages</h2>
+            <div class="lang-item">
+                <span class="lang-name">Spanish</span>
+                <span class="lang-level">— Native</span>
+            </div>
+            <div class="lang-item">
+                <span class="lang-name">English</span>
+                <span class="lang-level">— Advanced / Professional</span>
+            </div>
+        </section>
+
+        <section class="sidebar-section">
+            <h2 class="sidebar-title">Education</h2>
+            <div class="edu-item">
+                <div class="edu-title">System Engineer (2011)</div>
+                <div class="edu-school">Technological University of Pereira</div>
+            </div>
+        </section>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header>
+            <h1 class="name">Henry Perez</h1>
+            <h2 class="title">SDET | Test Automation Engineer</h2>
+        </header>
+
+        <section class="main-section">
+            <h3 class="section-title">About Me</h3>
+            <p class="about-text">
+                Senior SDET with 10+ years designing and maintaining automation frameworks from scratch for banking, media, AdTech, and retail. Currently at Globant working with Santander UK, where I reduced regression execution time by ~95%, reached 80% E2E coverage, and scaled performance testing from 0 to 3 suites. Deep expertise in Playwright + TypeScript. I work where quality and speed have to coexist — and I use AI tools daily to move faster without cutting corners.
+            </p>
+        </section>
+
+        <section class="main-section">
+            <h3 class="section-title">Work Experience</h3>
+
+            <!-- Job 1 -->
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-info">
+                        <div class="company">Globant · Santander UK</div>
+                        <div class="role">Test Automation Engineer</div>
+                    </div>
+                    <div class="date">May 2025 – Present</div>
+                </div>
+                <ul class="job-tasks">
+                    <li>Designed and maintained Playwright-based E2E and API automation framework from scratch — reduced regression execution time by ~95%</li>
+                    <li>Updated +60 obsolete manual tests to automated coverage, reaching 80% E2E coverage across core user journeys</li>
+                    <li>Scaled performance testing from 0 to 3 suites using JMeter, Postman and Bruno Collections</li>
+                    <li>AI-assisted daily workflow using GitHub Copilot for test generation, refactoring and documentation</li>
+                    <li>Worked closely with UK-based teams in Agile/Scrum environments</li>
+                </ul>
+            </div>
+
+            <!-- Job 2 -->
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-info">
+                        <div class="company">BairesDev</div>
+                        <div class="role">Test Automation Engineer — Remote</div>
+                    </div>
+                    <div class="date">Oct 2022 – May 2025</div>
+                </div>
+                
+                <div class="sub-project">
+                    <div class="sub-project-header">
+                        <div class="sub-project-title">Project: Kinesso</div>
+                        <div class="date">Nov 2024 – May 2025</div>
+                    </div>
+                    <ul class="job-tasks">
+                        <li>Developed and executed automated test suites using Playwright for web applications</li>
+                        <li>Designed and executed API test scenarios using Postman</li>
+                        <li>Managed test cases and defect tracking using Jira and Zephyr</li>
+                        <li>Delivered in a fully remote, international environment ensuring high-quality releases</li>
+                    </ul>
+                </div>
+
+                <div class="sub-project">
+                    <div class="sub-project-header">
+                        <div class="sub-project-title">Project: Windifferent</div>
+                        <div class="date">Oct 2022 – Sep 2024</div>
+                    </div>
+                    <ul class="job-tasks">
+                        <li>Designed and executed API automation tests using Postman and Cypress</li>
+                        <li>Implemented automated regression suites with Cypress</li>
+                        <li>Managed test cases and defect tracking using TestRail and Jira</li>
+                        <li>Ensured quality standards across multiple releases in an Agile environment</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Job 3 -->
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-info">
+                        <div class="company">Xcede</div>
+                        <div class="role">Test Automation Engineer — Remote</div>
+                    </div>
+                    <div class="date">Sep 2023 – Sep 2024</div>
+                </div>
+                <ul class="job-tasks">
+                    <li>Led the refactoring and optimization of an existing Playwright automation framework</li>
+                    <li>Implemented automated testing for both UI and APIs, improving maintainability and execution stability</li>
+                    <li>Managed defect tracking and reporting using Jira</li>
+                </ul>
+            </div>
+
+            <!-- Job 4 -->
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-info">
+                        <div class="company">Magentrix</div>
+                        <div class="role">QA Automation — Remote</div>
+                    </div>
+                    <div class="date">May 2021 – Oct 2022</div>
+                </div>
+                <ul class="job-tasks">
+                    <li>Automated end-to-end and API tests using Cypress and Playwright</li>
+                    <li>Designed and maintained automated test cases ensuring consistent regression coverage</li>
+                    <li>Managed test plans and execution using TestRail</li>
+                    <li>Collaborated with cross-functional teams to integrate quality early in the development lifecycle</li>
+                </ul>
+            </div>
+
+            <!-- Job 5 -->
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-info">
+                        <div class="company">GAP</div>
+                        <div class="role">QA Automation — Remote</div>
+                    </div>
+                    <div class="date">Jan 2022 – Oct 2022</div>
+                </div>
+                
+                <div class="sub-project">
+                    <div class="sub-project-header">
+                        <div class="sub-project-title">Abrigo Project</div>
+                    </div>
+                    <ul class="job-tasks">
+                        <li>Developed automated UI and API tests using Cypress and Postman</li>
+                        <li>Designed BDD test scenarios using Cucumber</li>
+                        <li>Managed defects using Jira, ensuring clear communication with development teams</li>
+                    </ul>
+                </div>
+
+                <div class="sub-project">
+                    <div class="sub-project-header">
+                        <div class="sub-project-title">DELL – MSDF Project</div>
+                    </div>
+                    <ul class="job-tasks">
+                        <li>Executed automated testing using Cypress</li>
+                        <li>Designed and executed test cases using Cucumber</li>
+                        <li>Managed defects and test execution using Jira and Zephyr</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Job 6 -->
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-info">
+                        <div class="company">Globant · Turner – CNN</div>
+                        <div class="role">Senior QC Analyst</div>
+                    </div>
+                    <div class="date">Sep 2017 – May 2021</div>
+                </div>
+                <ul class="job-tasks">
+                    <li>QA Lead for CNN's U.S. Elections project — high-visibility, high-stakes international platform</li>
+                    <li>Worked partially onsite at CNN Atlanta, coordinating testing activities with US-based teams</li>
+                    <li>Designed and executed manual and automated test cases using Cypress</li>
+                    <li>Managed defects and test cycles using Jira and X-Ray</li>
+                    <li>Created quality metrics, reports and testing procedures aligned with enterprise standards</li>
+                </ul>
+            </div>
+
+            <!-- Job 7 -->
+            <div class="job" style="margin-bottom: 8px;">
+                <div class="job-header">
+                    <div class="job-info">
+                        <div class="company">UNO+UNO</div>
+                        <div class="role">Business Process & Support Engineer</div>
+                    </div>
+                    <div class="date">Jun 2015 – Sep 2017</div>
+                </div>
+            </div>
+
+            <!-- Job 8 -->
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-info">
+                        <div class="company">INDRA SISTEMAS</div>
+                        <div class="role">Software Engineer — Grade II</div>
+                    </div>
+                    <div class="date">Aug 2013 – May 2015</div>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+</div>
+
+</body>
+</html>

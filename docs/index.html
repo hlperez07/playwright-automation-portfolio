@@ -2135,6 +2135,543 @@
           transition-delay: 0.3s;
         }
       }
+
+      /* ─── Experience Timeline ───────────────────────────────────────────────── */
+      .timeline {
+        position: relative;
+        padding-left: 2rem;
+      }
+
+      .timeline::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 8px;
+        bottom: 8px;
+        width: 2px;
+        background: linear-gradient(to bottom, var(--accent), var(--border));
+        border-radius: 2px;
+      }
+
+      .timeline-item {
+        position: relative;
+        padding: 1.4rem 1.5rem;
+        margin-bottom: 1rem;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--r-lg);
+        transition: border-color var(--transition), box-shadow var(--transition);
+        overflow: hidden;
+      }
+
+      .timeline-item::after {
+        content: '';
+        position: absolute;
+        left: -2.55rem;
+        top: 1.75rem;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--accent);
+        border: 2px solid var(--bg);
+        box-shadow: 0 0 0 2px var(--accent);
+      }
+
+      .timeline-item.timeline-item--current::after {
+        background: var(--green);
+        box-shadow: 0 0 0 2px var(--green), 0 0 8px var(--green);
+      }
+
+      .timeline-item:hover {
+        border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+        box-shadow: 0 4px 24px var(--accent-dim);
+      }
+
+      .timeline-item:last-child { margin-bottom: 0; }
+
+      .timeline-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-bottom: 0.25rem;
+      }
+
+      .timeline-role {
+        font-size: 0.78rem;
+        color: var(--accent);
+        font-weight: 500;
+        margin-bottom: 0.2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      .timeline-company {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text);
+        font-family: 'Space Grotesk', sans-serif;
+      }
+
+      .timeline-meta {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        flex-wrap: wrap;
+        flex-shrink: 0;
+      }
+
+      .timeline-dates {
+        font-size: 0.78rem;
+        color: var(--text-2);
+        font-family: 'JetBrains Mono', monospace;
+        white-space: nowrap;
+      }
+
+      .timeline-current-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        font-size: 0.72rem;
+        color: var(--green);
+        background: color-mix(in srgb, var(--green) 12%, transparent);
+        border: 1px solid color-mix(in srgb, var(--green) 30%, transparent);
+        border-radius: 99px;
+        padding: 0.2rem 0.6rem;
+        font-weight: 500;
+      }
+
+      .timeline-current-badge .dot-green {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--green);
+        animation: pulse-green 2s ease-in-out infinite;
+      }
+
+      @keyframes pulse-green {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.3; }
+      }
+
+      .timeline-bullets {
+        list-style: none;
+        margin-top: 0.75rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+
+      .timeline-bullets li {
+        display: flex;
+        gap: 0.6rem;
+        font-size: 0.875rem;
+        color: var(--text-2);
+        line-height: 1.5;
+      }
+
+      .timeline-bullets li::before {
+        content: '→';
+        color: var(--accent);
+        flex-shrink: 0;
+        font-size: 0.8rem;
+        margin-top: 0.15rem;
+      }
+
+      .timeline-ai-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        font-size: 0.72rem;
+        color: var(--yellow);
+        background: color-mix(in srgb, var(--yellow) 10%, transparent);
+        border: 1px solid color-mix(in srgb, var(--yellow) 25%, transparent);
+        border-radius: 99px;
+        padding: 0.15rem 0.55rem;
+        font-weight: 500;
+        margin-left: 0.25rem;
+        vertical-align: middle;
+      }
+
+      .timeline-metric {
+        display: inline-flex;
+        align-items: center;
+        font-size: 0.75rem;
+        color: var(--blue);
+        background: color-mix(in srgb, var(--blue) 10%, transparent);
+        border: 1px solid color-mix(in srgb, var(--blue) 25%, transparent);
+        border-radius: 99px;
+        padding: 0.1rem 0.5rem;
+        font-weight: 600;
+        font-family: 'JetBrains Mono', monospace;
+        margin-left: 0.25rem;
+        vertical-align: middle;
+      }
+
+      .timeline-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-top: 0.85rem;
+      }
+
+      .timeline-tag {
+        font-size: 0.72rem;
+        color: var(--text-2);
+        background: var(--surface-2);
+        border: 1px solid var(--border);
+        border-radius: 99px;
+        padding: 0.15rem 0.6rem;
+      }
+
+      .timeline-projects {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 0.75rem;
+      }
+
+      .timeline-project {
+        padding: 0.9rem 1rem;
+        background: var(--surface-2);
+        border: 1px solid var(--border);
+        border-radius: var(--r);
+        border-left: 2px solid var(--accent);
+      }
+
+      .timeline-project-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .timeline-project-name {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      .timeline-project-dates {
+        font-size: 0.75rem;
+        color: var(--text-2);
+        font-family: 'JetBrains Mono', monospace;
+      }
+
+      /* ─── Skills ────────────────────────────────────────────────────────────── */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .skill-group {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--r-lg);
+        padding: 1.5rem;
+        position: relative;
+        overflow: hidden;
+        transition: border-color var(--transition), box-shadow var(--transition);
+      }
+
+      .skill-group::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          circle at var(--mx, 50%) var(--my, 50%),
+          var(--accent-dim),
+          transparent 65%
+        );
+        opacity: 0;
+        transition: opacity 0.4s;
+        pointer-events: none;
+      }
+
+      .skill-group:hover {
+        border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+        box-shadow: 0 4px 24px var(--accent-dim);
+      }
+
+      .skill-group:hover::before { opacity: 1; }
+
+      .skill-group-title {
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 1rem;
+      }
+
+      .skill-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .skill-pill {
+        font-size: 0.82rem;
+        color: var(--text-2);
+        background: var(--surface-2);
+        border: 1px solid var(--border);
+        border-radius: 99px;
+        padding: 0.3rem 0.75rem;
+        transition: border-color var(--transition), color var(--transition);
+      }
+
+      .skill-pill--highlight {
+        color: var(--accent);
+        border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+        background: var(--accent-dim);
+      }
+
+      /* ─── Contact ───────────────────────────────────────────────────────────── */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
+        max-width: 560px;
+      }
+
+      .contact-card {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1.25rem 1.5rem;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--r-lg);
+        text-decoration: none;
+        color: var(--text);
+        transition: border-color var(--transition), box-shadow var(--transition), color var(--transition);
+      }
+
+      .contact-card:hover {
+        border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+        box-shadow: 0 4px 24px var(--accent-dim);
+        color: var(--accent);
+      }
+
+      .contact-card-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        background: var(--accent-dim);
+        display: grid;
+        place-items: center;
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+
+      .contact-card-label {
+        font-size: 0.72rem;
+        color: var(--text-2);
+        margin-bottom: 0.2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+
+      .contact-card-value {
+        font-size: 0.88rem;
+        font-weight: 500;
+      }
+
+      /* ─── Zone Divider ──────────────────────────────────────────────────────── */
+      .zone-divider {
+        background: var(--surface);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        padding: 3rem 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .zone-divider::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg,
+          color-mix(in srgb, var(--accent) 5%, transparent) 0%,
+          transparent 50%,
+          color-mix(in srgb, var(--blue) 5%, transparent) 100%
+        );
+        pointer-events: none;
+      }
+
+      .zone-divider-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+        position: relative;
+      }
+
+      .zone-divider-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.72rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--accent);
+        background: var(--accent-dim);
+        border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+        border-radius: 99px;
+        padding: 0.35rem 0.9rem;
+      }
+
+      .zone-divider-title {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+        font-weight: 700;
+        color: var(--text);
+      }
+
+      .zone-divider-sub {
+        font-size: 0.9rem;
+        color: var(--text-2);
+        max-width: 540px;
+        line-height: 1.6;
+      }
+
+      .zone-divider-links {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 0.5rem;
+      }
+
+      /* ─── About this project ─────────────────────────────────────────────────── */
+      .project-context-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.25rem;
+      }
+
+      .project-context-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--r-lg);
+        padding: 1.4rem;
+        transition: border-color var(--transition), box-shadow var(--transition);
+      }
+
+      .project-context-card:hover {
+        border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+        box-shadow: 0 4px 24px var(--accent-dim);
+      }
+
+      .project-context-card-icon {
+        font-size: 1.4rem;
+        margin-bottom: 0.65rem;
+      }
+
+      .project-context-card-title {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 0.5rem;
+      }
+
+      .project-context-card-text {
+        font-size: 0.855rem;
+        color: var(--text-2);
+        line-height: 1.65;
+      }
+
+      .project-stack-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-top: 0.85rem;
+      }
+
+      .project-stack-pill {
+        font-size: 0.74rem;
+        color: var(--accent);
+        background: var(--accent-dim);
+        border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+        border-radius: 99px;
+        padding: 0.2rem 0.65rem;
+        font-weight: 500;
+      }
+
+      .project-disclaimer {
+        margin-top: 1.5rem;
+        padding: 1rem 1.25rem;
+        background: color-mix(in srgb, var(--yellow) 8%, transparent);
+        border: 1px solid color-mix(in srgb, var(--yellow) 25%, transparent);
+        border-radius: var(--r);
+        font-size: 0.855rem;
+        color: var(--text-2);
+        display: flex;
+        gap: 0.75rem;
+        align-items: flex-start;
+        line-height: 1.6;
+      }
+
+      .project-disclaimer-icon {
+        flex-shrink: 0;
+        margin-top: 0.1rem;
+      }
+
+      /* ─── Nav demo link ──────────────────────────────────────────────────────── */
+      .nav-demo {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.38rem 0.85rem;
+        border-radius: 6px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-decoration: none;
+        color: var(--blue);
+        border: 1px solid color-mix(in srgb, var(--blue) 30%, transparent);
+        background: color-mix(in srgb, var(--blue) 8%, transparent);
+        transition: background var(--transition), border-color var(--transition);
+      }
+
+      .nav-demo:hover {
+        background: color-mix(in srgb, var(--blue) 18%, transparent);
+        border-color: var(--blue);
+      }
+
+      .nav-sep {
+        width: 1px;
+        height: 18px;
+        background: var(--border);
+        align-self: center;
+      }
+
+      /* ─── Nav CV button & hero Download CV ──────────────────────────────────── */
+      .nav-cv {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.38rem 0.85rem;
+        border-radius: 6px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-decoration: none;
+        color: var(--accent);
+        border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+        background: color-mix(in srgb, var(--accent) 10%, transparent);
+        transition: background var(--transition), border-color var(--transition);
+      }
+
+      .nav-cv:hover {
+        background: color-mix(in srgb, var(--accent) 22%, transparent);
+        border-color: var(--accent);
+      }
     </style>
   </head>
   <body>
@@ -2154,19 +2691,23 @@
         </a>
         <ul class="nav-links" role="list">
           <li><a href="#about">About</a></li>
-          <li><a href="#ai">AI</a></li>
-          <li><a href="#strategy">Strategy</a></li>
-          <li><a href="#coverage">Coverage</a></li>
-          <li><a href="#architecture">Architecture</a></li>
-          <li><a href="#ci">CI/CD</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
-        <a class="nav-cta" href="report/" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-            <path
-              d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8V1.5Z"
-            />
+        <div class="nav-sep" aria-hidden="true"></div>
+        <a class="nav-demo" href="#demo-project" aria-label="Go to portfolio demo project">
+          <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8V1.5Z"/>
           </svg>
-          View Result Report
+          Demo Project
+        </a>
+        <a class="nav-cv" href="CV.pdf" download="Henry-Perez-SDET-CV.pdf" aria-label="Download CV">
+          <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <path d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z"/>
+            <path d="M7.25 7.689V2a.75.75 0 0 1 1.5 0v5.689l1.97-1.97a.749.749 0 1 1 1.06 1.06l-3.25 3.25a.749.749 0 0 1-1.06 0L4.22 6.78a.749.749 0 1 1 1.06-1.06l1.97 1.97Z"/>
+          </svg>
+          CV
         </a>
         <!-- Mobile hamburger — hidden on desktop via CSS -->
         <button
@@ -2191,17 +2732,17 @@
       >
         <ul class="nav-mobile-links" role="list">
           <li><a href="#about">About</a></li>
-          <li><a href="#ai">AI</a></li>
-          <li><a href="#strategy">Strategy</a></li>
-          <li><a href="#coverage">Coverage</a></li>
-          <li><a href="#architecture">Architecture</a></li>
-          <li><a href="#ci">CI/CD</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#demo-project" style="color: var(--blue)">📁 Demo Project</a></li>
         </ul>
-        <a class="nav-mobile-cta" href="report/" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-            <path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8V1.5Z" />
+        <a class="nav-cv" href="CV.pdf" download="Henry-Perez-SDET-CV.pdf" style="margin-bottom:.75rem;">
+          <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <path d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z"/>
+            <path d="M7.25 7.689V2a.75.75 0 0 1 1.5 0v5.689l1.97-1.97a.749.749 0 1 1 1.06 1.06l-3.25 3.25a.749.749 0 0 1-1.06 0L4.22 6.78a.749.749 0 1 1 1.06-1.06l1.97 1.97Z"/>
           </svg>
-          View Result Report
+          Download CV
         </a>
       </div>
     </nav>
@@ -2225,13 +2766,13 @@
           <img class="hero-avatar" src="henry.jpg" alt="Henry Perez" width="140" height="140" />
         </div>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="report/" target="_blank" rel="noopener">
+          <a class="btn btn-primary" href="#demo-project" aria-label="Go to portfolio demo project" rel="noopener">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
               <path
                 d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8V1.5Z"
               />
             </svg>
-            View Result Report
+            Demo Project
           </a>
           <a
             class="btn btn-secondary"
@@ -2246,6 +2787,18 @@
               />
             </svg>
             LinkedIn
+          </a>
+          <a
+            class="btn btn-secondary"
+            href="CV.pdf"
+            download="Henry-Perez-SDET-CV.pdf"
+            aria-label="Download Henry Perez CV"
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+              <path d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z"/>
+              <path d="M7.25 7.689V2a.75.75 0 0 1 1.5 0v5.689l1.97-1.97a.749.749 0 1 1 1.06 1.06l-3.25 3.25a.749.749 0 0 1-1.06 0L4.22 6.78a.749.749 0 1 1 1.06-1.06l1.97 1.97Z"/>
+            </svg>
+            Download CV
           </a>
           <a
             class="btn btn-secondary"
@@ -2298,32 +2851,6 @@
         </div>
       </div>
     </div>
-
-    <!-- ── Stats ──────────────────────────────────────────────────────────────── -->
-    <section class="stats" aria-label="Test suite statistics" id="main-content">
-      <div class="stats-grid container">
-        <div class="stat">
-          <div class="stat-icon" aria-hidden="true">🧪</div>
-          <div class="stat-value accent" data-count="33">0</div>
-          <div class="stat-label">Total Tests</div>
-        </div>
-        <div class="stat">
-          <div class="stat-icon" aria-hidden="true">🌐</div>
-          <div class="stat-value blue" data-count="21">0</div>
-          <div class="stat-label">E2E Tests</div>
-        </div>
-        <div class="stat">
-          <div class="stat-icon" aria-hidden="true">📡</div>
-          <div class="stat-value green" data-count="12">0</div>
-          <div class="stat-label">API Tests</div>
-        </div>
-        <div class="stat">
-          <div class="stat-icon" aria-hidden="true">✅</div>
-          <div class="stat-value green" data-suffix="%" data-count="100">0</div>
-          <div class="stat-label">Pass Rate</div>
-        </div>
-      </div>
-    </section>
 
     <!-- ── About ─────────────────────────────────────────────────────────────── -->
     <section id="about" style="padding-top: 0">
@@ -2400,6 +2927,265 @@
                   in both languages across technical and business contexts.
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Experience ────────────────────────────────────────────────────────── -->
+    <section id="experience">
+      <div class="container">
+        <p class="section-label reveal">Career</p>
+        <h2 class="section-title reveal reveal-delay-1">10+ years of hands-on automation</h2>
+        <p class="section-subtitle reveal reveal-delay-2">
+          From Indra to CNN to Santander UK. Each role shaped how I think about quality at scale.
+        </p>
+
+        <div class="timeline reveal reveal-delay-3">
+
+          <!-- Globant | Santander UK — current -->
+          <div class="timeline-item timeline-item--current">
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-role">Test Automation Engineer</div>
+                <div class="timeline-company">Globant · Santander UK</div>
+              </div>
+              <div class="timeline-meta">
+                <span class="timeline-dates">May 2025 – Present</span>
+                <span class="timeline-current-badge"><span class="dot-green"></span>Current</span>
+              </div>
+            </div>
+            <ul class="timeline-bullets">
+              <li>Designed and maintained Playwright-based E2E and API automation framework from scratch —<span class="timeline-metric">~95% faster regression</span></li>
+              <li>Updated +60 obsolete manual tests to automated coverage, reaching<span class="timeline-metric">80% E2E coverage</span></li>
+              <li>Scaled performance testing from 0 to 3 suites using JMeter, Postman and Bruno Collections</li>
+              <li>Worked closely with UK-based teams in Agile/Scrum environments</li>
+              <li>AI-assisted daily workflow for test generation, refactoring and documentation<span class="timeline-ai-badge">🤖 GitHub Copilot</span></li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="timeline-tag">Playwright</span>
+              <span class="timeline-tag">TypeScript</span>
+              <span class="timeline-tag">JMeter</span>
+              <span class="timeline-tag">Postman</span>
+              <span class="timeline-tag">Bruno</span>
+              <span class="timeline-tag">GitHub Actions</span>
+              <span class="timeline-tag">Banking</span>
+            </div>
+          </div>
+
+          <!-- Xcede -->
+          <div class="timeline-item">
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-role">Test Automation Engineer — Remote</div>
+                <div class="timeline-company">Xcede</div>
+              </div>
+              <span class="timeline-dates">Sep 2023 – Sep 2024</span>
+            </div>
+            <ul class="timeline-bullets">
+              <li>Led the refactoring and optimization of an existing Playwright automation framework</li>
+              <li>Implemented automated testing for both UI and APIs, improving maintainability and execution stability</li>
+              <li>Managed defect tracking and reporting using Jira</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="timeline-tag">Playwright</span>
+              <span class="timeline-tag">TypeScript</span>
+              <span class="timeline-tag">API Testing</span>
+              <span class="timeline-tag">Jira</span>
+            </div>
+          </div>
+
+          <!-- BairesDev — grouped (Windifferent + Kinesso) -->
+          <div class="timeline-item">
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-role">Test Automation Engineer — Remote</div>
+                <div class="timeline-company">BairesDev</div>
+              </div>
+              <span class="timeline-dates">Oct 2022 – May 2025</span>
+            </div>
+
+            <div class="timeline-projects">
+
+              <div class="timeline-project">
+                <div class="timeline-project-header">
+                  <span class="timeline-project-name">Project: Kinesso</span>
+                  <span class="timeline-project-dates">Nov 2024 – May 2025</span>
+                </div>
+                <ul class="timeline-bullets">
+                  <li>Developed and executed automated test suites using Playwright for web applications</li>
+                  <li>Designed and executed API test scenarios using Postman</li>
+                  <li>Managed test cases and defect tracking using Jira and Zephyr</li>
+                  <li>Delivered in a fully remote, international environment ensuring high-quality releases</li>
+                </ul>
+              </div>
+
+              <div class="timeline-project">
+                <div class="timeline-project-header">
+                  <span class="timeline-project-name">Project: Windifferent</span>
+                  <span class="timeline-project-dates">Oct 2022 – Sep 2024</span>
+                </div>
+                <ul class="timeline-bullets">
+                  <li>Designed and executed API automation tests using Postman and Cypress</li>
+                  <li>Implemented automated regression suites with Cypress</li>
+                  <li>Managed test cases and defect tracking using TestRail and Jira</li>
+                  <li>Ensured quality standards across multiple releases in an Agile environment</li>
+                </ul>
+              </div>
+
+            </div>
+
+            <div class="timeline-tags">
+              <span class="timeline-tag">Playwright</span>
+              <span class="timeline-tag">Cypress</span>
+              <span class="timeline-tag">Postman</span>
+              <span class="timeline-tag">TestRail</span>
+              <span class="timeline-tag">Jira</span>
+              <span class="timeline-tag">Zephyr</span>
+              <span class="timeline-tag">AdTech</span>
+            </div>
+          </div>
+
+          <!-- Magentrix -->
+          <div class="timeline-item">
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-role">QA Automation — Remote</div>
+                <div class="timeline-company">Magentrix</div>
+              </div>
+              <span class="timeline-dates">May 2021 – Oct 2022</span>
+            </div>
+            <ul class="timeline-bullets">
+              <li>Automated end-to-end and API tests using Cypress and Playwright</li>
+              <li>Designed and maintained automated test cases ensuring consistent regression coverage</li>
+              <li>Managed test plans and execution using TestRail</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="timeline-tag">Cypress</span>
+              <span class="timeline-tag">Playwright</span>
+              <span class="timeline-tag">TestRail</span>
+            </div>
+          </div>
+
+          <!-- GAP -->
+          <div class="timeline-item">
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-role">QA Automation — Remote</div>
+                <div class="timeline-company">GAP · Abrigo &amp; DELL MSDF</div>
+              </div>
+              <span class="timeline-dates">Jan 2022 – Oct 2022</span>
+            </div>
+            <ul class="timeline-bullets">
+              <li>Developed automated UI and API tests using Cypress and Postman</li>
+              <li>Designed BDD test scenarios using Cucumber (Abrigo project)</li>
+              <li>Executed automated testing with Cucumber for DELL MSDF project</li>
+              <li>Managed defects using Jira and Zephyr</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="timeline-tag">Cypress</span>
+              <span class="timeline-tag">Postman</span>
+              <span class="timeline-tag">BDD / Cucumber</span>
+              <span class="timeline-tag">Jira</span>
+              <span class="timeline-tag">Zephyr</span>
+            </div>
+          </div>
+
+          <!-- Globant | CNN Turner -->
+          <div class="timeline-item">
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-role">Senior QC Analyst</div>
+                <div class="timeline-company">Globant · Turner – CNN</div>
+              </div>
+              <span class="timeline-dates">Sep 2017 – May 2021</span>
+            </div>
+            <ul class="timeline-bullets">
+              <li>QA Lead for CNN's U.S. Elections project — high-visibility, high-stakes international platform</li>
+              <li>Worked partially onsite at CNN Atlanta, coordinating testing with US-based teams</li>
+              <li>Designed and executed manual and automated test cases using Cypress</li>
+              <li>Created quality metrics, reports and testing procedures aligned with enterprise standards</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="timeline-tag">Cypress</span>
+              <span class="timeline-tag">Jira</span>
+              <span class="timeline-tag">X-Ray</span>
+              <span class="timeline-tag">Media</span>
+              <span class="timeline-tag">QA Lead</span>
+            </div>
+          </div>
+
+          <!-- UNO+UNO -->
+          <div class="timeline-item">
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-role">Business Process &amp; Support Engineer</div>
+                <div class="timeline-company">UNO+UNO</div>
+              </div>
+              <span class="timeline-dates">Jun 2015 – Sep 2017</span>
+            </div>
+          </div>
+
+          <!-- INDRA -->
+          <div class="timeline-item">
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-role">Software Engineer — Grade II</div>
+                <div class="timeline-company">INDRA SISTEMAS</div>
+              </div>
+              <span class="timeline-dates">Aug 2013 – May 2015</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Skills ─────────────────────────────────────────────────────────────── -->
+    <section id="skills">
+      <div class="container">
+        <p class="section-label reveal">Tech Stack</p>
+        <h2 class="section-title reveal reveal-delay-1">The stack behind the frameworks</h2>
+        <p class="section-subtitle reveal reveal-delay-2">
+          10+ years of tool selection guided by one principle: use what makes the team faster and more confident.
+        </p>
+
+        <div class="skills-grid reveal reveal-delay-3">
+          <div class="skill-group">
+            <div class="skill-group-title">⚗️ Automation &amp; Testing</div>
+            <div class="skill-pills">
+              <span class="skill-pill skill-pill--highlight">Playwright</span>
+              <span class="skill-pill">Cypress</span>
+              <span class="skill-pill">Selenium WebDriver</span>
+              <span class="skill-pill skill-pill--highlight">Shift-left Testing</span>
+              <span class="skill-pill skill-pill--highlight">Postman</span>
+              <span class="skill-pill skill-pill--highlight">Bruno Collection</span>
+              <span class="skill-pill">API Testing</span>
+              <span class="skill-pill">Performance Testing (JMeter)</span>
+              <span class="skill-pill">BDD / Cucumber / Gherkin</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-group-title">💻 Programming</div>
+            <div class="skill-pills">
+              <span class="skill-pill skill-pill--highlight">TypeScript</span>
+              <span class="skill-pill">JavaScript</span>
+              <span class="skill-pill">Java</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-group-title">⚙️ Tools &amp; Process</div>
+            <div class="skill-pills">
+              <span class="skill-pill">Jira</span>
+              <span class="skill-pill">X-Ray</span>
+              <span class="skill-pill">Zephyr</span>
+              <span class="skill-pill">TestRail</span>
+              <span class="skill-pill">Agile / Scrum / Kanban</span>
+              <span class="skill-pill">GitHub Actions</span>
+              <span class="skill-pill">GitLab CI</span>
+              <span class="skill-pill">Jenkins</span>
+              <span class="skill-pill skill-pill--highlight">GitHub Copilot</span>
             </div>
           </div>
         </div>
@@ -2581,6 +3367,120 @@
       </div>
     </section>
 
+    <!-- ── Zone Divider ──────────────────────────────────────────────────────── -->
+    <div class="zone-divider" id="demo-project">
+      <div class="container zone-divider-inner">
+        <span class="zone-divider-badge">
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8V1.5Z"/>
+          </svg>
+          Portfolio Project
+        </span>
+        <h2 class="zone-divider-title">Automation Framework Demo</h2>
+        <p class="zone-divider-sub">
+          What follows is a technical showcase — a full automation framework built from scratch to demonstrate how I design, architect, and ship quality at scale.
+        </p>
+        <div class="zone-divider-links">
+          <a class="btn btn-primary" href="report/" target="_blank" rel="noopener" style="font-size: 0.85rem; padding: 0.55rem 1.1rem;">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+              <path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8V1.5Z"/>
+            </svg>
+            View Result Report
+          </a>
+          <a class="btn btn-secondary" href="https://github.com/hlperez07/playwright-automation-portfolio" target="_blank" rel="noopener" style="font-size: 0.85rem; padding: 0.55rem 1.1rem;">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+            </svg>
+            Source Code
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── About this project ─────────────────────────────────────────────────── -->
+    <section id="about-project" style="padding-top: 0">
+      <div class="container">
+        <p class="section-label reveal">The Project</p>
+        <h2 class="section-title reveal reveal-delay-1">What's under test and why</h2>
+        <p class="section-subtitle reveal reveal-delay-2">
+          Every section below documents a real decision I'd make on a client project — from app selection to CI pipeline design.
+        </p>
+
+        <div class="project-context-grid reveal reveal-delay-3">
+          <div class="project-context-card">
+            <div class="project-context-card-icon">🎯</div>
+            <div class="project-context-card-title">App under test — OrangeHRM</div>
+            <div class="project-context-card-text">
+              Open-source Human Resource Management system with production-like modules: HR, Leave, and Recruitment. Chosen because it offers a realistic domain with both a full UI and a REST API layer — ideal to demonstrate E2E and API automation patterns together.<br><br>
+              <a href="https://opensource-demo.orangehrmlive.com" target="_blank" rel="noopener" style="color: var(--accent); font-size: 0.8rem; text-decoration: none;">opensource-demo.orangehrmlive.com ↗</a>
+            </div>
+          </div>
+
+          <div class="project-context-card">
+            <div class="project-context-card-icon">📐</div>
+            <div class="project-context-card-title">Purpose of this demo</div>
+            <div class="project-context-card-text">
+              Show how I design a framework from zero: folder structure, fixtures, auth strategy, API-first setup, page objects, CI pipeline, and Allure reporting. Every architectural decision here is one I apply on real client projects.
+            </div>
+          </div>
+
+          <div class="project-context-card">
+            <div class="project-context-card-icon">📦</div>
+            <div class="project-context-card-title">What you'll find inside</div>
+            <div class="project-context-card-text">
+              33 automated tests across 4 modules: Authentication, PIM / Employees, Leave Management, and Recruitment. E2E tests exercise full user journeys through the browser. API tests verify backend contracts and data integrity independently, without touching the UI.
+            </div>
+          </div>
+
+          <div class="project-context-card">
+            <div class="project-context-card-icon">⚙️</div>
+            <div class="project-context-card-title">Tech stack of this project</div>
+            <div class="project-context-card-text">
+              Full TypeScript strict mode, Playwright Test runner, Allure reporter with trend history across runs, GitHub Actions on every push, deployed automatically to GitHub Pages.
+            </div>
+            <div class="project-stack-pills">
+              <span class="project-stack-pill">Playwright</span>
+              <span class="project-stack-pill">TypeScript</span>
+              <span class="project-stack-pill">Allure</span>
+              <span class="project-stack-pill">GitHub Actions</span>
+              <span class="project-stack-pill">GitHub Pages</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-disclaimer reveal reveal-delay-3">
+          <span class="project-disclaimer-icon">⚠️</span>
+          <span>OrangeHRM's public demo resets hourly and is shared across all users — some tests may fail intermittently due to data state changes made by other users, not framework issues. The Allure trend report shows real pass rate history over time.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Stats ──────────────────────────────────────────────────────────────── -->
+    <section class="stats" aria-label="Test suite statistics" id="main-content" style="padding-top: 0">
+      <div class="stats-grid container">
+        <div class="stat">
+          <div class="stat-icon" aria-hidden="true">🧪</div>
+          <div class="stat-value accent" data-count="33">0</div>
+          <div class="stat-label">Total Tests</div>
+        </div>
+        <div class="stat">
+          <div class="stat-icon" aria-hidden="true">🌐</div>
+          <div class="stat-value blue" data-count="21">0</div>
+          <div class="stat-label">E2E Tests</div>
+        </div>
+        <div class="stat">
+          <div class="stat-icon" aria-hidden="true">📡</div>
+          <div class="stat-value green" data-count="12">0</div>
+          <div class="stat-label">API Tests</div>
+        </div>
+        <div class="stat">
+          <div class="stat-icon" aria-hidden="true">✅</div>
+          <div class="stat-value green" data-suffix="%" data-count="100">0</div>
+          <div class="stat-label">Pass Rate</div>
+        </div>
+      </div>
+    </section>
+
     <!-- ── Testing Strategy ───────────────────────────────────────────────────── -->
     <section id="strategy" aria-label="Testing Strategy">
       <div class="container">
@@ -2605,7 +3505,7 @@
             <h3>Page Object Model</h3>
             <p>
               Each page is a typed class with <code>readonly Locator</code> properties and workflow
-              methods. Assertions belong exclusively in test files — page objects only act.
+              methods. Assertions belong exclusively in test files, page objects only act.
             </p>
           </div>
           <div class="card reveal" data-delay="2">
@@ -2614,7 +3514,7 @@
             <p>
               All raw selector strings live in <code>*.locators.ts</code> files exported
               <code>as const</code>. OrangeHRM's custom <code>oxd-*</code> class names are
-              centralised — one change propagates everywhere.
+              centralised. One change propagates everywhere.
             </p>
           </div>
           <div class="card reveal" data-delay="3">
@@ -2717,7 +3617,7 @@
         <p class="section-label reveal">Architecture</p>
         <h2 class="section-title reveal reveal-delay-1">Three-layer design</h2>
         <p class="section-subtitle reveal reveal-delay-2">
-          A strict dependency direction — locators feed pages, pages feed specs — keeps the suite
+          A strict dependency direction, locators feed pages and pages feed specs. Keeps the suite
           maintainable as it scales.
         </p>
 
@@ -2801,203 +3701,6 @@
       </div>
     </section>
 
-    <!-- ── Skills ─────────────────────────────────────────────────────────────── -->
-    <section id="skills" style="padding-top: 0" aria-label="Skills and Tools">
-      <div class="container">
-        <p class="section-label reveal">Skills</p>
-        <h2 class="section-title reveal reveal-delay-1">Full toolkit</h2>
-        <p class="section-subtitle reveal reveal-delay-2">
-          Built across 10+ years of projects in banking, media, retail, and AdTech. Levels: ● expert
-          · ○ proficient · △ aware
-        </p>
-        <div class="skills-grid reveal reveal-delay-3">
-          <div class="skill-group">
-            <div class="skill-group-header">
-              <div
-                class="skill-group-icon"
-                style="background: color-mix(in srgb, var(--accent) 12%, transparent)"
-              >
-                🎭
-              </div>
-              <span class="skill-group-label">Test Automation</span>
-            </div>
-            <div class="skill-tags">
-              <span class="skill-tag"
-                >Playwright <span class="skill-level skill-level--expert">●●●</span></span
-              >
-              <span class="skill-tag"
-                >Cypress <span class="skill-level skill-level--proficient">●●○</span></span
-              >
-              <span class="skill-tag"
-                >Selenium <span class="skill-level skill-level--proficient">●●○</span></span
-              >
-            </div>
-          </div>
-
-          <div class="skill-group">
-            <div class="skill-group-header">
-              <div
-                class="skill-group-icon"
-                style="background: color-mix(in srgb, var(--blue) 12%, transparent)"
-              >
-                📡
-              </div>
-              <span class="skill-group-label">API Testing</span>
-            </div>
-            <div class="skill-tags">
-              <span class="skill-tag"
-                >Postman <span class="skill-level skill-level--expert">●●●</span></span
-              >
-              <span class="skill-tag"
-                >Bruno <span class="skill-level skill-level--proficient">●●○</span></span
-              >
-              <span class="skill-tag"
-                >REST APIs <span class="skill-level skill-level--expert">●●●</span></span
-              >
-              <span class="skill-tag"
-                >Contract Testing <span class="skill-level skill-level--aware">○○○</span></span
-              >
-            </div>
-          </div>
-
-          <div class="skill-group">
-            <div class="skill-group-header">
-              <div
-                class="skill-group-icon"
-                style="background: color-mix(in srgb, var(--yellow) 12%, transparent)"
-              >
-                💻
-              </div>
-              <span class="skill-group-label">Programming</span>
-            </div>
-            <div class="skill-tags">
-              <span class="skill-tag"
-                >TypeScript <span class="skill-level skill-level--expert">●●●</span></span
-              >
-              <span class="skill-tag"
-                >JavaScript <span class="skill-level skill-level--proficient">●●○</span></span
-              >
-              <span class="skill-tag"
-                >Java <span class="skill-level skill-level--proficient">●●○</span></span
-              >
-            </div>
-          </div>
-
-          <div class="skill-group">
-            <div class="skill-group-header">
-              <div
-                class="skill-group-icon"
-                style="background: color-mix(in srgb, var(--green) 12%, transparent)"
-              >
-                🏗️
-              </div>
-              <span class="skill-group-label">Test Architecture</span>
-            </div>
-            <div class="skill-tags">
-              <span class="skill-tag"
-                >Framework Design <span class="skill-level skill-level--expert">●●●</span></span
-              >
-              <span class="skill-tag"
-                >Page Object Model <span class="skill-level skill-level--expert">●●●</span></span
-              >
-              <span class="skill-tag"
-                >Test Strategy <span class="skill-level skill-level--expert">●●●</span></span
-              >
-            </div>
-          </div>
-
-          <div class="skill-group">
-            <div class="skill-group-header">
-              <div
-                class="skill-group-icon"
-                style="background: color-mix(in srgb, var(--accent) 12%, transparent)"
-              >
-                ⚙️
-              </div>
-              <span class="skill-group-label">CI/CD &amp; DevOps</span>
-            </div>
-            <div class="skill-tags">
-              <span class="skill-tag"
-                >GitHub Actions <span class="skill-level skill-level--expert">●●●</span></span
-              >
-              <span class="skill-tag"
-                >Jenkins <span class="skill-level skill-level--proficient">●●○</span></span
-              >
-              <span class="skill-tag"
-                >GitLab CI <span class="skill-level skill-level--proficient">●●○</span></span
-              >
-            </div>
-          </div>
-
-          <div class="skill-group">
-            <div class="skill-group-header">
-              <div
-                class="skill-group-icon"
-                style="background: color-mix(in srgb, var(--blue) 12%, transparent)"
-              >
-                📊
-              </div>
-              <span class="skill-group-label">Test Management</span>
-            </div>
-            <div class="skill-tags">
-              <span class="skill-tag"
-                >Jira <span class="skill-level skill-level--expert">●●●</span></span
-              >
-              <span class="skill-tag"
-                >X-Ray <span class="skill-level skill-level--expert">●●●</span></span
-              >
-              <span class="skill-tag"
-                >Zephyr <span class="skill-level skill-level--proficient">●●○</span></span
-              >
-              <span class="skill-tag"
-                >TestRail <span class="skill-level skill-level--proficient">●●○</span></span
-              >
-            </div>
-          </div>
-
-          <div class="skill-group">
-            <div class="skill-group-header">
-              <div
-                class="skill-group-icon"
-                style="background: color-mix(in srgb, var(--green) 12%, transparent)"
-              >
-                ⚡
-              </div>
-              <span class="skill-group-label">Performance</span>
-            </div>
-            <div class="skill-tags">
-              <span class="skill-tag"
-                >JMeter <span class="skill-level skill-level--proficient">●●○</span></span
-              >
-              <span class="skill-tag"
-                >Load Testing <span class="skill-level skill-level--proficient">●●○</span></span
-              >
-            </div>
-          </div>
-
-          <div class="skill-group">
-            <div class="skill-group-header">
-              <div
-                class="skill-group-icon"
-                style="background: color-mix(in srgb, var(--yellow) 12%, transparent)"
-              >
-                🥒
-              </div>
-              <span class="skill-group-label">BDD</span>
-            </div>
-            <div class="skill-tags">
-              <span class="skill-tag"
-                >Cucumber <span class="skill-level skill-level--proficient">●●○</span></span
-              >
-              <span class="skill-tag"
-                >Gherkin <span class="skill-level skill-level--proficient">●●○</span></span
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ── CI/CD ──────────────────────────────────────────────────────────────── -->
     <section id="ci" aria-label="CI/CD Pipeline">
       <div class="container">
@@ -3066,6 +3769,48 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Contact ───────────────────────────────────────────────────────────── -->
+    <section id="contact">
+      <div class="container">
+        <p class="section-label reveal">Get in touch</p>
+        <h2 class="section-title reveal reveal-delay-1">Let's work together</h2>
+        <p class="section-subtitle reveal reveal-delay-2">
+          Open to new opportunities in Test Automation and SDET roles. Email is the best way to reach me.
+        </p>
+
+        <div class="contact-grid reveal reveal-delay-3">
+          <a class="contact-card" href="mailto:hlperez@gmail.com" aria-label="Send email to Henry Perez">
+            <div class="contact-card-icon">✉️</div>
+            <div>
+              <div class="contact-card-label">Email</div>
+              <div class="contact-card-value">hlperez@gmail.com</div>
+            </div>
+          </a>
+          <a class="contact-card" href="https://www.linkedin.com/in/hlperez/" target="_blank" rel="noopener" aria-label="Henry Perez on LinkedIn">
+            <div class="contact-card-icon">
+              <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="contact-card-label">LinkedIn</div>
+              <div class="contact-card-value">/in/hlperez/</div>
+            </div>
+          </a>
+        </div>
+
+        <div style="margin-top: 2rem;" class="reveal reveal-delay-3">
+          <a class="btn btn-secondary" href="CV.pdf" download="Henry-Perez-SDET-CV.pdf" aria-label="Download CV PDF">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+              <path d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z"/>
+              <path d="M7.25 7.689V2a.75.75 0 0 1 1.5 0v5.689l1.97-1.97a.749.749 0 1 1 1.06 1.06l-3.25 3.25a.749.749 0 0 1-1.06 0L4.22 6.78a.749.749 0 1 1 1.06-1.06l1.97 1.97Z"/>
+            </svg>
+            Download CV (PDF)
+          </a>
         </div>
       </div>
     </section>
@@ -3194,7 +3939,7 @@
 
       /* ── Radial gradient on hover (all interactive cards) ──────────────────── */
       const radialTargets =
-        '.card, .arch-item, .highlight-card, .skill-group, .stat, .pipeline-step, .ai-card, .impact-card';
+        '.card, .arch-item, .highlight-card, .skill-group, .stat, .pipeline-step, .ai-card, .impact-card, .contact-card';
       document.querySelectorAll(radialTargets).forEach((el) => {
         el.addEventListener('mousemove', (e) => {
           const rect = el.getBoundingClientRect();
