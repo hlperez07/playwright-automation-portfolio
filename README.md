@@ -2,14 +2,14 @@
 
 <!-- Badges -->
 
-[![CI](https://github.com/hlperez07/playwright-automation-portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/hlperez07/playwright-automation-portfolio/actions)
-[![Tests](https://img.shields.io/badge/tests-32%20total-ff6b35?style=flat-square&logo=playwright&logoColor=white)](https://hlperez07.github.io/playwright-automation-portfolio/report/)
-[![Pass Rate](https://img.shields.io/badge/pass%20rate-72%25-3fb950?style=flat-square&logo=playwright&logoColor=white)](https://hlperez07.github.io/playwright-automation-portfolio/report/)
-[![E2E](https://img.shields.io/badge/E2E-20-ff6b35?style=flat-square&logo=playwright&logoColor=white)](https://hlperez07.github.io/playwright-automation-portfolio/report/)
-[![API](https://img.shields.io/badge/API-12-58a6ff?style=flat-square&logo=playwright&logoColor=white)](https://hlperez07.github.io/playwright-automation-portfolio/report/)
+[![CI](https://github.com/hlperez07/hlperez-portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/hlperez07/hlperez-portfolio/actions)
+[![Tests](https://img.shields.io/badge/tests-32%20total-ff6b35?style=flat-square&logo=playwright&logoColor=white)](https://hlperez07.github.io/hlperez-portfolio/report/)
+[![Pass Rate](https://img.shields.io/badge/pass%20rate-72%25-3fb950?style=flat-square&logo=playwright&logoColor=white)](https://hlperez07.github.io/hlperez-portfolio/report/)
+[![E2E](https://img.shields.io/badge/E2E-20-ff6b35?style=flat-square&logo=playwright&logoColor=white)](https://hlperez07.github.io/hlperez-portfolio/report/)
+[![API](https://img.shields.io/badge/API-12-58a6ff?style=flat-square&logo=playwright&logoColor=white)](https://hlperez07.github.io/hlperez-portfolio/report/)
 [![License](https://img.shields.io/badge/license-MIT-8b949e?style=flat-square)](LICENSE)
 
-[Portfolio ↗](https://hlperez07.github.io/playwright-automation-portfolio/) · [Custom Report ↗](https://hlperez07.github.io/playwright-automation-portfolio/report/) · [Allure ↗](https://hlperez07.github.io/playwright-automation-portfolio/allure/)
+[Portfolio ↗](https://hlperez07.github.io/hlperez-portfolio/) · [Custom Report ↗](https://hlperez07.github.io/hlperez-portfolio/report/) · [Allure ↗](https://hlperez07.github.io/hlperez-portfolio/allure/)
 
 ---
 
@@ -24,7 +24,7 @@ The project demonstrates layered API + E2E test coverage, a clean Page Object Mo
 ## Architecture
 
 ```
-playwright-automation-portfolio/
+hlperez-portfolio/
 ├── .github/workflows/ci.yml     # GitHub Actions: test + Allure report deploy
 ├── src/
 │   ├── api/                     # Typed API client wrappers
@@ -71,8 +71,8 @@ playwright-automation-portfolio/
 
 ```bash
 # Prerequisites: Node.js >= 20
-git clone https://github.com/hlperez07/playwright-automation-portfolio.git
-cd playwright-automation-portfolio
+git clone https://github.com/hlperez07/hlperez-portfolio.git
+cd hlperez-portfolio
 npm ci
 npx playwright install chromium
 cp .env.example .env  # optional: defaults to public OrangeHRM demo
@@ -109,7 +109,7 @@ Steps:
 
 Report and test results are always generated and deployed — even when tests fail — so failures are always visible and traceable.
 
-[View Actions runs](https://github.com/hlperez07/playwright-automation-portfolio/actions)
+[View Actions runs](https://github.com/hlperez07/hlperez-portfolio/actions)
 
 ---
 

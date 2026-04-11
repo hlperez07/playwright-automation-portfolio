@@ -61,7 +61,7 @@ I need you to create a professional CV in PDF format for a Senior SDET (Software
 - **Email:** hlperez@gmail.com
 - **LinkedIn:** linkedin.com/in/hlperez/
 - **GitHub:** github.com/hlperez07
-- **Portfolio:** hlperez07.github.io/playwright-automation-portfolio/
+- **Portfolio:** hlperez07.github.io/hlperez-portfolio/
 
 ---
 

@@ -128,7 +128,7 @@ jobs:
         if: always()
         run: node scripts/generate-report.js
         env:
-          PAGES_BASE_URL: 'https://hlperez07.github.io/playwright-automation-portfolio'
+          PAGES_BASE_URL: 'https://hlperez07.github.io/hlperez-portfolio'
 
       - name: Build GitHub Pages site
         if: always()

@@ -81,7 +81,7 @@ function flattenSuite(suite, inheritedFile = '') {
 
       rows.push({
         file: file,
-        githubUrl: `https://github.com/hlperez07/playwright-automation-portfolio/blob/main/${file}`,
+        githubUrl: `https://github.com/hlperez07/hlperez-portfolio/blob/main/${file}`,
         title: spec.title,
         project: test.projectName,
         status: mapStatus(test.status),
@@ -145,10 +145,10 @@ const runDate = rawStats.startTime
 // ── Build HTML ────────────────────────────────────────────────────────────────
 
 // Base URL for the GitHub Pages traces directory.
-// Set PAGES_BASE_URL in CI to the site root (e.g. https://hlperez07.github.io/playwright-automation-portfolio).
+// Set PAGES_BASE_URL in CI to the site root (e.g. https://hlperez07.github.io/hlperez-portfolio).
 const TRACES_BASE = process.env.PAGES_BASE_URL
   ? `${process.env.PAGES_BASE_URL.replace(/\/$/, '')}/traces`
-  : 'https://hlperez07.github.io/playwright-automation-portfolio/traces';
+  : 'https://hlperez07.github.io/hlperez-portfolio/traces';
 
 const DATA_JSON = JSON.stringify({
   tests,
@@ -658,7 +658,7 @@ const html = /* html */ `<!DOCTYPE html>
     <div class="container">
       <strong style="color:var(--text-2)">Henry Perez</strong> · Senior SDET ·
       <a href="https://www.linkedin.com/in/hlperez/" target="_blank" rel="noopener">LinkedIn</a> ·
-      <a href="https://github.com/hlperez07/playwright-automation-portfolio" target="_blank" rel="noopener">GitHub</a> ·
+      <a href="https://github.com/hlperez07/hlperez-portfolio" target="_blank" rel="noopener">GitHub</a> ·
       <a href="../allure/index.html" target="_blank" rel="noopener">Allure Detailed Report ↗</a>
     </div>
   </footer>
