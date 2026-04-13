@@ -411,6 +411,8 @@
         @media (max-width: 767px) {
           .nav-links { display: none; }
           .nav-cta   { display: none; }
+          .nav-demo  { display: none; }
+          .nav-sep   { display: none; }
           .nav-toggle { display: flex; }
 
           .nav-mobile {
@@ -1811,6 +1813,79 @@
           margin-top: 1.25rem;
         }
 
+        /* ── Skill Library block ──────────────────────────────────────────────── */
+        .ai-skill-library {
+          margin-top: 1.5rem;
+          padding-top: 1.25rem;
+          border-top: 1px solid var(--border);
+        }
+
+        .ai-skill-library-header {
+          display: flex;
+          align-items: baseline;
+          gap: 0.6rem;
+          margin-bottom: 0.4rem;
+        }
+
+        .ai-skill-library-title {
+          font-size: 0.85rem;
+          font-weight: 600;
+          color: var(--text);
+        }
+
+        .ai-skill-library-desc {
+          font-size: 0.8rem;
+          color: var(--text-2);
+          margin-bottom: 0.9rem;
+          line-height: 1.5;
+        }
+
+        .ai-skill-cats {
+          display: flex;
+          gap: 0.6rem;
+          flex-wrap: wrap;
+          margin-bottom: 1rem;
+        }
+
+        .ai-skill-cat {
+          display: flex;
+          flex-direction: column;
+          gap: 0.15rem;
+          padding: 0.55rem 0.9rem;
+          border-radius: var(--r);
+          border: 1px solid var(--border);
+          background: var(--surface-2);
+          text-decoration: none;
+          transition: border-color var(--transition), background var(--transition);
+          cursor: default;
+        }
+
+        .ai-skill-cat-name {
+          font-size: 0.78rem;
+          font-weight: 600;
+          color: var(--text);
+        }
+
+        .ai-skill-cat-count {
+          font-size: 0.7rem;
+          color: var(--text-2);
+        }
+
+        .ai-skill-library-link {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.35rem;
+          font-size: 0.78rem;
+          font-weight: 500;
+          color: var(--accent);
+          text-decoration: none;
+          transition: opacity var(--transition);
+        }
+
+        .ai-skill-library-link:hover {
+          opacity: 0.8;
+        }
+
         .ai-tool-badge {
           padding: 0.25rem 0.7rem;
           border-radius: 999px;
@@ -2760,7 +2835,7 @@
         <h1 class="hero-title">Henry Perez</h1>
         <p class="hero-sub">
           I build <span class="hero-word" id="hero-word" data-words='["automation frameworks","E2E pipelines","CI quality gates","test suites","API contracts"]'>automation frameworks</span> that give teams fast, honest feedback.<br />
-          Senior SDET — banking · media · AdTech · retail.
+          Senior SDET: banking · media · AdTech · retail.
         </p>
         <div class="hero-avatar-wrap" aria-hidden="true">
           <img class="hero-avatar" src="henry.jpg" alt="Henry Perez" width="140" height="140" />
@@ -2957,7 +3032,7 @@
               </div>
             </div>
             <ul class="timeline-bullets">
-              <li>Designed and maintained Playwright-based E2E and API automation framework from scratch —<span class="timeline-metric">~95% faster regression</span></li>
+              <li>Designed and maintained Playwright-based E2E and API automation framework from scratch. <span class="timeline-metric">~95% faster regression</span></li>
               <li>Updated +60 obsolete manual tests to automated coverage, reaching<span class="timeline-metric">80% E2E coverage</span></li>
               <li>Scaled performance testing from 0 to 3 suites using JMeter, Postman and Bruno Collections</li>
               <li>Worked closely with UK-based teams in Agile/Scrum environments</li>
@@ -3362,6 +3437,38 @@
             <span class="ai-tool-badge">Ollama (Local)</span>
             <span class="ai-tool-badge">Human-in-the-loop</span>
             <span class="ai-tool-badge">Playwright AI</span>
+          </div>
+
+          <!-- Skill Library -->
+          <div class="ai-skill-library">
+            <div class="ai-skill-library-header">
+              <span class="ai-skill-library-title">📚 Prompt Library</span>
+            </div>
+            <p class="ai-skill-library-desc">
+              6 grounding documents that constrain the AI to correct patterns — no hallucinated APIs, no CSS selectors, no assertions inside Page Objects. Used daily alongside Copilot and Claude.
+            </p>
+            <div class="ai-skill-cats" aria-label="Skill categories">
+              <div class="ai-skill-cat">
+                <span class="ai-skill-cat-name">QA Methodology</span>
+                <span class="ai-skill-cat-count">3 documents — gates, ISTQB, delivery checklist</span>
+              </div>
+              <div class="ai-skill-cat">
+                <span class="ai-skill-cat-name">Playwright Patterns</span>
+                <span class="ai-skill-cat-count">3 documents — POM, locators, flakiness</span>
+              </div>
+            </div>
+            <a
+              class="ai-skill-library-link"
+              href="https://github.com/hlperez07/hlperez-portfolio/tree/main/prompt-library"
+              target="_blank"
+              rel="noopener"
+              aria-label="View Prompt Library on GitHub"
+            >
+              View on GitHub
+              <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                <path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"/>
+              </svg>
+            </a>
           </div>
         </div>
       </div>

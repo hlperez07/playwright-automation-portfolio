@@ -122,6 +122,19 @@ Report and test results are always generated and deployed — even when tests fa
 
 ---
 
+## AI-Augmented Practices
+
+| Practice | Approach |
+|---|---|
+| Test generation | Grounding documents constrain the AI to correct Playwright patterns — no hallucinated APIs, no CSS selectors |
+| Locator strategy | Skill-guided rules enforce semantic locators (`getByRole`, `getByLabel`) in every generated test |
+| Flakiness review | Structured skill document identifies race conditions and retry anti-patterns before tests ship |
+| Documentation | AI-drafted JSDoc and coverage reports, human-validated before merge |
+
+📚 [Prompt Library](./prompt-library/) — the grounding documents behind this workflow.
+
+---
+
 ## License
 
 MIT

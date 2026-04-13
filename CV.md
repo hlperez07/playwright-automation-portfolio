@@ -23,7 +23,7 @@ Senior SDET with 10+ years designing and maintaining automation frameworks from 
 - Designed and maintained Playwright-based E2E and API automation framework from scratch — reduced regression execution time by ~95%
 - Updated +60 obsolete manual tests to automated coverage, reaching 80% E2E coverage across core user journeys
 - Scaled performance testing from 0 to 3 suites using JMeter, Postman and Bruno Collections
-- AI-assisted daily workflow using GitHub Copilot for test generation, refactoring and documentation
+- AI-Augmented Test Development: used GitHub Copilot daily for test generation, refactoring and documentation — reducing initial test creation time by ~70% while maintaining 100% type safety and semantic locator standards
 - Worked closely with UK-based teams in Agile/Scrum environments
 
 ---
@@ -102,14 +102,19 @@ Senior SDET with 10+ years designing and maintaining automation frameworks from 
 
 ## Skills
 
-### Automation & Testing
-Playwright · Cypress · Selenium WebDriver · Shift-left Testing · Postman · Bruno Collection · API Testing · Performance Testing (JMeter) · BDD / Cucumber / Gherkin
+### Core Automation & Architecture
+Playwright · Cypress · Selenium WebDriver · TypeScript · Java · Page Object Model · API Testing (REST/GraphQL) · CI/CD (GitHub Actions, GitLab CI, Jenkins) · Docker
 
-### Programming
-TypeScript · JavaScript · Java
+### AI-Augmented Development
+GitHub Copilot · Prompt Engineering for QA · AI Grounding Documents · Human-in-the-Loop Workflows · Local AI (Ollama)
+
+Built a library of 30+ AI grounding documents for Playwright and QA methodology, used daily to eliminate hallucinations and enforce architectural standards in AI-generated test code. [→ Prompt Library](https://github.com/hlperez07/hlperez-portfolio/tree/main/prompt-library)
+
+### Specialized Testing
+BDD / Cucumber / Gherkin · Performance Testing (JMeter) · Shift-Left Testing · Postman · Bruno Collection
 
 ### Tools & Process
-Jira · X-Ray · Zephyr · TestRail · Agile / Scrum / Kanban · GitHub Actions · GitLab CI · Jenkins · GitHub Copilot
+Jira · X-Ray · Zephyr · TestRail · Agile / Scrum / Kanban
 
 ---
 
