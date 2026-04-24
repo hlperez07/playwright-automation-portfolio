@@ -1,4 +1,4 @@
-# Henry Perez — SDET | Test Automation Engineer
+# Henry Perez — QA Lead | Quality Engineering Lead
 
 ## Contact
 
@@ -11,7 +11,7 @@
 
 ## About Me
 
-Senior SDET with 10+ years designing and maintaining automation frameworks from scratch for banking, media, AdTech, and retail. Currently at Globant working with Santander UK, where I reduced regression execution time by ~95%, reached 80% E2E coverage, and scaled performance testing from 0 to 3 suites. Deep expertise in Playwright + TypeScript. I work where quality and speed have to coexist — and I use AI tools daily to move faster without cutting corners.
+QA Lead with 10+ years of experience in quality engineering, test strategy design, and technical team leadership across international high-profile projects. Led QA initiatives for global enterprises including CNN (Turner) and Santander UK, defining testing strategies, tech stacks, and quality gates from the ground up. Proven track record driving continuous improvement and QA transformations, from framework migrations to methodology shifts. Hands-on leader combining strategic thinking with deep technical expertise in automation, shift-left testing, and modern quality engineering practices. 10+ years of full English-language professional experience working directly with international clients and distributed teams.
 
 ---
 
