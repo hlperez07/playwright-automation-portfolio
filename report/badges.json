@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "lastRun": "2026-04-24T04:58:43.331Z",
+  "summary": {
+    "total": 32,
+    "passed": 31,
+    "failed": 1,
+    "flaky": 0,
+    "skipped": 0,
+    "passRate": 97
+  },
+  "byType": {
+    "e2e": 20,
+    "api": 12
+  },
+  "byModule": [
+    {
+      "name": "Auth",
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "e2e": 5,
+      "api": 0
+    },
+    {
+      "name": "PIM",
+      "total": 6,
+      "passed": 6,
+      "failed": 0,
+      "e2e": 6,
+      "api": 0
+    },
+    {
+      "name": "Leave",
+      "total": 4,
+      "passed": 3,
+      "failed": 1,
+      "e2e": 4,
+      "api": 0
+    },
+    {
+      "name": "Recruitment",
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "e2e": 5,
+      "api": 0
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+[
+  {
+    "date": "2026-04-09T06:52:31.292Z",
+    "total": 32,
+    "passed": 0,
+    "failed": 0,
+    "flaky": 1,
+    "skipped": 0,
+    "passRate": 3,
+    "duration": 144470.11500000002
+  },
+  {
+    "date": "2026-04-09T07:21:13.341Z",
+    "total": 32,
+    "passed": 0,
+    "failed": 0,
+    "flaky": 1,
+    "skipped": 0,
+    "passRate": 3,
+    "duration": 119599.472
+  },
+  {
+    "date": "2026-04-10T18:27:02.031Z",
+    "total": 32,
+    "passed": 0,
+    "failed": 0,
+    "flaky": 0,
+    "skipped": 0,
+    "passRate": 0,
+    "duration": 65318.447
+  },
+  {
+    "date": "2026-04-10T18:38:03.428Z",
+    "total": 32,
+    "passed": 0,
+    "failed": 0,
+    "flaky": 1,
+    "skipped": 0,
+    "passRate": 3,
+    "duration": 84165.276
+  },
+  {
+    "date": "2026-04-10T19:01:29.691Z",
+    "total": 32,
+    "passed": 0,
+    "failed": 0,
+    "flaky": 0,
+    "skipped": 0,
+    "passRate": 0,
+    "duration": 78449.29599999999
+  },
+  {
+    "date": "2026-04-11T06:42:35.850Z",
+    "total": 32,
+    "passed": 0,
+    "failed": 0,
+    "flaky": 1,
+    "skipped": 0,
+    "passRate": 3,
+    "duration": 89467.931
+  },
+  {
+    "date": "2026-04-11T06:55:38.263Z",
+    "total": 32,
+    "passed": 0,
+    "failed": 0,
+    "flaky": 0,
+    "skipped": 0,
+    "passRate": 0,
+    "duration": 175180.925
+  },
+  {
+    "date": "2026-04-11T07:20:38.868Z",
+    "total": 32,
+    "passed": 0,
+    "failed": 0,
+    "flaky": 0,
+    "skipped": 0,
+    "passRate": 0,
+    "duration": 68269.193
+  },
+  {
+    "date": "2026-04-13T11:21:44.944Z",
+    "total": 32,
+    "passed": 0,
+    "failed": 0,
+    "flaky": 0,
+    "skipped": 1,
+    "passRate": 0,
+    "duration": 158709.386
+  },
+  {
+    "date": "2026-04-24T04:58:43.331Z",
+    "total": 32,
+    "passed": 0,
+    "failed": 0,
+    "flaky": 0,
+    "skipped": 0,
+    "passRate": 0,
+    "duration": 192285.94400000002
+  }
+]

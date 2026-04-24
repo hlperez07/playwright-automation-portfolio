@@ -1,0 +1,1648 @@
+{
+  "config": {
+    "configFile": "/home/runner/work/hlperez-portfolio/hlperez-portfolio/playwright.config.ts",
+    "rootDir": "/home/runner/work/hlperez-portfolio/hlperez-portfolio/tests",
+    "forbidOnly": true,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "ci": {
+        "commitHref": "https://github.com/hlperez07/hlperez-portfolio/commit/1a73a9fbfd7a275f198b95d2040ba4ba455ffe1d",
+        "commitHash": "1a73a9fbfd7a275f198b95d2040ba4ba455ffe1d",
+        "buildHref": "https://github.com/hlperez07/hlperez-portfolio/actions/runs/24873009245"
+      },
+      "gitCommit": {
+        "shortHash": "1a73a9f",
+        "hash": "1a73a9fbfd7a275f198b95d2040ba4ba455ffe1d",
+        "subject": "feat(portfolio): pivot to QA Lead / Quality Engineering Lead positioning",
+        "body": "feat(portfolio): pivot to QA Lead / Quality Engineering Lead positioning\n\n- index.html: update title, meta, OG, schema.org — all references changed from\n  Senior SDET to QA Lead | Quality Engineering Lead\n- Hero: updated rotating words and sub-headline to leadership framing\n- Hero tags: QA Strategy, Team Leadership, Shift-Left replacing tech-only tags\n- About section: rewritten bio and highlight cards to reflect strategic QA lead role\n- Experience timeline: Globant/Santander UK now shows QA Lead title and leadership\n  bullets; CNN entry updated with full leadership context (team of 3, quality plan,\n  KPIs, methodology transformation)\n- Skills section: new \"Quality Leadership\" group added as first category\n- Impact section: metrics updated to reflect leadership achievements (4 yrs QA Lead, 95% regression)\n- Footer and contact section updated to remove SDET references\n- CV.md: synopsis updated to QA Lead framing\n- cv.html: already updated to QA Lead layout — included updated PDF\n",
+        "author": {
+          "name": "HenryPerez",
+          "email": "hlperez@gmail.com",
+          "time": 1777006658000
+        },
+        "committer": {
+          "name": "HenryPerez",
+          "email": "hlperez@gmail.com",
+          "time": 1777006658000
+        },
+        "branch": "main"
+      },
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/home/runner/work/hlperez-portfolio/hlperez-portfolio/test-results",
+        "repeatEach": 1,
+        "retries": 2,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/hlperez07/hlperez-portfolio/commit/1a73a9fbfd7a275f198b95d2040ba4ba455ffe1d",
+            "commitHash": "1a73a9fbfd7a275f198b95d2040ba4ba455ffe1d",
+            "buildHref": "https://github.com/hlperez07/hlperez-portfolio/actions/runs/24873009245"
+          },
+          "gitCommit": {
+            "shortHash": "1a73a9f",
+            "hash": "1a73a9fbfd7a275f198b95d2040ba4ba455ffe1d",
+            "subject": "feat(portfolio): pivot to QA Lead / Quality Engineering Lead positioning",
+            "body": "feat(portfolio): pivot to QA Lead / Quality Engineering Lead positioning\n\n- index.html: update title, meta, OG, schema.org — all references changed from\n  Senior SDET to QA Lead | Quality Engineering Lead\n- Hero: updated rotating words and sub-headline to leadership framing\n- Hero tags: QA Strategy, Team Leadership, Shift-Left replacing tech-only tags\n- About section: rewritten bio and highlight cards to reflect strategic QA lead role\n- Experience timeline: Globant/Santander UK now shows QA Lead title and leadership\n  bullets; CNN entry updated with full leadership context (team of 3, quality plan,\n  KPIs, methodology transformation)\n- Skills section: new \"Quality Leadership\" group added as first category\n- Impact section: metrics updated to reflect leadership achievements (4 yrs QA Lead, 95% regression)\n- Footer and contact section updated to remove SDET references\n- CV.md: synopsis updated to QA Lead framing\n- cv.html: already updated to QA Lead layout — included updated PDF\n",
+            "author": {
+              "name": "HenryPerez",
+              "email": "hlperez@gmail.com",
+              "time": 1777006658000
+            },
+            "committer": {
+              "name": "HenryPerez",
+              "email": "hlperez@gmail.com",
+              "time": 1777006658000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 2
+        },
+        "id": "setup",
+        "name": "setup",
+        "testDir": "/home/runner/work/hlperez-portfolio/hlperez-portfolio/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/auth.setup.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/hlperez-portfolio/hlperez-portfolio/test-results",
+        "repeatEach": 1,
+        "retries": 2,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/hlperez07/hlperez-portfolio/commit/1a73a9fbfd7a275f198b95d2040ba4ba455ffe1d",
+            "commitHash": "1a73a9fbfd7a275f198b95d2040ba4ba455ffe1d",
+            "buildHref": "https://github.com/hlperez07/hlperez-portfolio/actions/runs/24873009245"
+          },
+          "gitCommit": {
+            "shortHash": "1a73a9f",
+            "hash": "1a73a9fbfd7a275f198b95d2040ba4ba455ffe1d",
+            "subject": "feat(portfolio): pivot to QA Lead / Quality Engineering Lead positioning",
+            "body": "feat(portfolio): pivot to QA Lead / Quality Engineering Lead positioning\n\n- index.html: update title, meta, OG, schema.org — all references changed from\n  Senior SDET to QA Lead | Quality Engineering Lead\n- Hero: updated rotating words and sub-headline to leadership framing\n- Hero tags: QA Strategy, Team Leadership, Shift-Left replacing tech-only tags\n- About section: rewritten bio and highlight cards to reflect strategic QA lead role\n- Experience timeline: Globant/Santander UK now shows QA Lead title and leadership\n  bullets; CNN entry updated with full leadership context (team of 3, quality plan,\n  KPIs, methodology transformation)\n- Skills section: new \"Quality Leadership\" group added as first category\n- Impact section: metrics updated to reflect leadership achievements (4 yrs QA Lead, 95% regression)\n- Footer and contact section updated to remove SDET references\n- CV.md: synopsis updated to QA Lead framing\n- cv.html: already updated to QA Lead layout — included updated PDF\n",
+            "author": {
+              "name": "HenryPerez",
+              "email": "hlperez@gmail.com",
+              "time": 1777006658000
+            },
+            "committer": {
+              "name": "HenryPerez",
+              "email": "hlperez@gmail.com",
+              "time": 1777006658000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 2
+        },
+        "id": "e2e",
+        "name": "e2e",
+        "testDir": "/home/runner/work/hlperez-portfolio/hlperez-portfolio/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/runner/work/hlperez-portfolio/hlperez-portfolio/test-results",
+        "repeatEach": 1,
+        "retries": 2,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/hlperez07/hlperez-portfolio/commit/1a73a9fbfd7a275f198b95d2040ba4ba455ffe1d",
+            "commitHash": "1a73a9fbfd7a275f198b95d2040ba4ba455ffe1d",
+            "buildHref": "https://github.com/hlperez07/hlperez-portfolio/actions/runs/24873009245"
+          },
+          "gitCommit": {
+            "shortHash": "1a73a9f",
+            "hash": "1a73a9fbfd7a275f198b95d2040ba4ba455ffe1d",
+            "subject": "feat(portfolio): pivot to QA Lead / Quality Engineering Lead positioning",
+            "body": "feat(portfolio): pivot to QA Lead / Quality Engineering Lead positioning\n\n- index.html: update title, meta, OG, schema.org — all references changed from\n  Senior SDET to QA Lead | Quality Engineering Lead\n- Hero: updated rotating words and sub-headline to leadership framing\n- Hero tags: QA Strategy, Team Leadership, Shift-Left replacing tech-only tags\n- About section: rewritten bio and highlight cards to reflect strategic QA lead role\n- Experience timeline: Globant/Santander UK now shows QA Lead title and leadership\n  bullets; CNN entry updated with full leadership context (team of 3, quality plan,\n  KPIs, methodology transformation)\n- Skills section: new \"Quality Leadership\" group added as first category\n- Impact section: metrics updated to reflect leadership achievements (4 yrs QA Lead, 95% regression)\n- Footer and contact section updated to remove SDET references\n- CV.md: synopsis updated to QA Lead framing\n- cv.html: already updated to QA Lead layout — included updated PDF\n",
+            "author": {
+              "name": "HenryPerez",
+              "email": "hlperez@gmail.com",
+              "time": 1777006658000
+            },
+            "committer": {
+              "name": "HenryPerez",
+              "email": "hlperez@gmail.com",
+              "time": 1777006658000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 2
+        },
+        "id": "api",
+        "name": "api",
+        "testDir": "/home/runner/work/hlperez-portfolio/hlperez-portfolio/tests/api",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "line",
+        null
+      ],
+      [
+        "/home/runner/work/hlperez-portfolio/hlperez-portfolio/node_modules/allure-playwright/dist/cjs/index.js",
+        {
+          "resultsDir": "allure-results"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.59.1",
+    "workers": 2,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "auth.setup.ts",
+      "file": "auth.setup.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "authenticate as admin user",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "setup",
+              "projectName": "setup",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10476,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-24T04:58:44.315Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "17e3fe6f4d9d8bd79c6b-213d2edc922c62d4624d",
+          "file": "auth.setup.ts",
+          "line": 6,
+          "column": 6
+        }
+      ]
+    },
+    {
+      "title": "e2e/auth/login.spec.ts",
+      "file": "e2e/auth/login.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Login",
+          "file": "e2e/auth/login.spec.ts",
+          "line": 7,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should redirect to dashboard after valid login",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 13415,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-24T04:58:56.426Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "231ca1f0f4db3e4958c3-9bb1a3444b2bd872d057",
+              "file": "e2e/auth/login.spec.ts",
+              "line": 16,
+              "column": 7
+            },
+            {
+              "title": "should display error for invalid password",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 11305,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-24T04:58:56.430Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "231ca1f0f4db3e4958c3-217f60645a9816cd58a0",
+              "file": "e2e/auth/login.spec.ts",
+              "line": 25,
+              "column": 7
+            },
+            {
+              "title": "should display error for invalid username",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 9211,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-24T04:59:07.869Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "231ca1f0f4db3e4958c3-1dec0c089ebc3f047df8",
+              "file": "e2e/auth/login.spec.ts",
+              "line": 33,
+              "column": 7
+            },
+            {
+              "title": "should display validation errors for empty fields",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5174,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-24T04:59:09.983Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "231ca1f0f4db3e4958c3-afcd368a089aedd46cdb",
+              "file": "e2e/auth/login.spec.ts",
+              "line": 41,
+              "column": 7
+            },
+            {
+              "title": "should redirect to login page after logout",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 14523,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-24T04:59:15.178Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "231ca1f0f4db3e4958c3-c69cfbd99b8b890aab6a",
+              "file": "e2e/auth/login.spec.ts",
+              "line": 47,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "e2e/leave/apply-leave.spec.ts",
+      "file": "e2e/leave/apply-leave.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Apply Leave",
+          "file": "e2e/leave/apply-leave.spec.ts",
+          "line": 26,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should apply for leave successfully",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 8159,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-24T04:59:17.737Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "02892fd9128a10c5a526-5ebed331e2a0acde6f99",
+              "file": "e2e/leave/apply-leave.spec.ts",
+              "line": 27,
+              "column": 7
+            },
+            {
+              "title": "should assign leave to an employee as admin",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 25793,
+                      "error": {
+                        "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('yyyy-dd-mm').first()\u001b[22m\n",
+                        "stack": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('yyyy-dd-mm').first()\u001b[22m\n\n    at AssignLeavePage.assignLeave (/home/runner/work/hlperez-portfolio/hlperez-portfolio/src/pages/leave/assign-leave.page.ts:53:30)\n    at /home/runner/work/hlperez-portfolio/hlperez-portfolio/tests/e2e/leave/apply-leave.spec.ts:106:5",
+                        "location": {
+                          "file": "/home/runner/work/hlperez-portfolio/hlperez-portfolio/src/pages/leave/assign-leave.page.ts",
+                          "column": 30,
+                          "line": 53
+                        },
+                        "snippet": "   at ../src/pages/leave/assign-leave.page.ts:53\n\n\u001b[0m \u001b[90m 51 |\u001b[39m     \u001b[90m// loader to clear before trying to fill the date inputs.\u001b[39m\n \u001b[90m 52 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(\u001b[33mOxdLocators\u001b[39m\u001b[33m.\u001b[39mformLoader)\u001b[33m.\u001b[39mwaitFor({ state\u001b[33m:\u001b[39m \u001b[32m'hidden'\u001b[39m\u001b[33m,\u001b[39m timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m.\u001b[39m\u001b[36mcatch\u001b[39m(() \u001b[33m=>\u001b[39m {})\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 53 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mfromDateInput\u001b[33m.\u001b[39mfill(fromDate)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 54 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mfromDateInput\u001b[33m.\u001b[39mpress(\u001b[32m'Tab'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 55 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mtoDateInput\u001b[33m.\u001b[39mfill(toDate)\u001b[33m;\u001b[39m\n \u001b[90m 56 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mtoDateInput\u001b[33m.\u001b[39mpress(\u001b[32m'Tab'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/runner/work/hlperez-portfolio/hlperez-portfolio/src/pages/leave/assign-leave.page.ts",
+                            "column": 30,
+                            "line": 53
+                          },
+                          "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('yyyy-dd-mm').first()\u001b[22m\n\n\n   at ../src/pages/leave/assign-leave.page.ts:53\n\n  51 |     // loader to clear before trying to fill the date inputs.\n  52 |     await this.page.locator(OxdLocators.formLoader).waitFor({ state: 'hidden', timeout: 10000 }).catch(() => {});\n> 53 |     await this.fromDateInput.fill(fromDate);\n     |                              ^\n  54 |     await this.fromDateInput.press('Tab');\n  55 |     await this.toDateInput.fill(toDate);\n  56 |     await this.toDateInput.press('Tab');\n    at AssignLeavePage.assignLeave (/home/runner/work/hlperez-portfolio/hlperez-portfolio/src/pages/leave/assign-leave.page.ts:53:30)\n    at /home/runner/work/hlperez-portfolio/hlperez-portfolio/tests/e2e/leave/apply-leave.spec.ts:106:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-24T04:59:25.997Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/runner/work/hlperez-portfolio/hlperez-portfolio/test-results/leave-apply-leave-Apply-Le-f0246-ave-to-an-employee-as-admin-e2e/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/hlperez-portfolio/hlperez-portfolio/test-results/leave-apply-leave-Apply-Le-f0246-ave-to-an-employee-as-admin-e2e/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/runner/work/hlperez-portfolio/hlperez-portfolio/test-results/leave-apply-leave-Apply-Le-f0246-ave-to-an-employee-as-admin-e2e/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/runner/work/hlperez-portfolio/hlperez-portfolio/src/pages/leave/assign-leave.page.ts",
+                        "column": 30,
+                        "line": 53
+                      }
+                    },
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 22960,
+                      "error": {
+                        "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('yyyy-dd-mm').first()\u001b[22m\n",
+                        "stack": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('yyyy-dd-mm').first()\u001b[22m\n\n    at AssignLeavePage.assignLeave (/home/runner/work/hlperez-portfolio/hlperez-portfolio/src/pages/leave/assign-leave.page.ts:53:30)\n    at /home/runner/work/hlperez-portfolio/hlperez-portfolio/tests/e2e/leave/apply-leave.spec.ts:106:5",
+                        "location": {
+                          "file": "/home/runner/work/hlperez-portfolio/hlperez-portfolio/src/pages/leave/assign-leave.page.ts",
+                          "column": 30,
+                          "line": 53
+                        },
+                        "snippet": "   at ../src/pages/leave/assign-leave.page.ts:53\n\n\u001b[0m \u001b[90m 51 |\u001b[39m     \u001b[90m// loader to clear before trying to fill the date inputs.\u001b[39m\n \u001b[90m 52 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(\u001b[33mOxdLocators\u001b[39m\u001b[33m.\u001b[39mformLoader)\u001b[33m.\u001b[39mwaitFor({ state\u001b[33m:\u001b[39m \u001b[32m'hidden'\u001b[39m\u001b[33m,\u001b[39m timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m.\u001b[39m\u001b[36mcatch\u001b[39m(() \u001b[33m=>\u001b[39m {})\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 53 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mfromDateInput\u001b[33m.\u001b[39mfill(fromDate)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 54 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mfromDateInput\u001b[33m.\u001b[39mpress(\u001b[32m'Tab'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 55 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mtoDateInput\u001b[33m.\u001b[39mfill(toDate)\u001b[33m;\u001b[39m\n \u001b[90m 56 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mtoDateInput\u001b[33m.\u001b[39mpress(\u001b[32m'Tab'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/runner/work/hlperez-portfolio/hlperez-portfolio/src/pages/leave/assign-leave.page.ts",
+                            "column": 30,
+                            "line": 53
+                          },
+                          "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('yyyy-dd-mm').first()\u001b[22m\n\n\n   at ../src/pages/leave/assign-leave.page.ts:53\n\n  51 |     // loader to clear before trying to fill the date inputs.\n  52 |     await this.page.locator(OxdLocators.formLoader).waitFor({ state: 'hidden', timeout: 10000 }).catch(() => {});\n> 53 |     await this.fromDateInput.fill(fromDate);\n     |                              ^\n  54 |     await this.fromDateInput.press('Tab');\n  55 |     await this.toDateInput.fill(toDate);\n  56 |     await this.toDateInput.press('Tab');\n    at AssignLeavePage.assignLeave (/home/runner/work/hlperez-portfolio/hlperez-portfolio/src/pages/leave/assign-leave.page.ts:53:30)\n    at /home/runner/work/hlperez-portfolio/hlperez-portfolio/tests/e2e/leave/apply-leave.spec.ts:106:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-04-24T04:59:57.059Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/runner/work/hlperez-portfolio/hlperez-portfolio/test-results/leave-apply-leave-Apply-Le-f0246-ave-to-an-employee-as-admin-e2e-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/hlperez-portfolio/hlperez-portfolio/test-results/leave-apply-leave-Apply-Le-f0246-ave-to-an-employee-as-admin-e2e-retry1/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/runner/work/hlperez-portfolio/hlperez-portfolio/test-results/leave-apply-leave-Apply-Le-f0246-ave-to-an-employee-as-admin-e2e-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/runner/work/hlperez-portfolio/hlperez-portfolio/test-results/leave-apply-leave-Apply-Le-f0246-ave-to-an-employee-as-admin-e2e-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/runner/work/hlperez-portfolio/hlperez-portfolio/src/pages/leave/assign-leave.page.ts",
+                        "column": 30,
+                        "line": 53
+                      }
+                    },
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 22873,
+                      "error": {
+                        "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('yyyy-dd-mm').first()\u001b[22m\n",
+                        "stack": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('yyyy-dd-mm').first()\u001b[22m\n\n    at AssignLeavePage.assignLeave (/home/runner/work/hlperez-portfolio/hlperez-portfolio/src/pages/leave/assign-leave.page.ts:53:30)\n    at /home/runner/work/hlperez-portfolio/hlperez-portfolio/tests/e2e/leave/apply-leave.spec.ts:106:5",
+                        "location": {
+                          "file": "/home/runner/work/hlperez-portfolio/hlperez-portfolio/src/pages/leave/assign-leave.page.ts",
+                          "column": 30,
+                          "line": 53
+                        },
+                        "snippet": "   at ../src/pages/leave/assign-leave.page.ts:53\n\n\u001b[0m \u001b[90m 51 |\u001b[39m     \u001b[90m// loader to clear before trying to fill the date inputs.\u001b[39m\n \u001b[90m 52 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(\u001b[33mOxdLocators\u001b[39m\u001b[33m.\u001b[39mformLoader)\u001b[33m.\u001b[39mwaitFor({ state\u001b[33m:\u001b[39m \u001b[32m'hidden'\u001b[39m\u001b[33m,\u001b[39m timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m.\u001b[39m\u001b[36mcatch\u001b[39m(() \u001b[33m=>\u001b[39m {})\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 53 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mfromDateInput\u001b[33m.\u001b[39mfill(fromDate)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 54 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mfromDateInput\u001b[33m.\u001b[39mpress(\u001b[32m'Tab'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 55 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mtoDateInput\u001b[33m.\u001b[39mfill(toDate)\u001b[33m;\u001b[39m\n \u001b[90m 56 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mtoDateInput\u001b[33m.\u001b[39mpress(\u001b[32m'Tab'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/runner/work/hlperez-portfolio/hlperez-portfolio/src/pages/leave/assign-leave.page.ts",
+                            "column": 30,
+                            "line": 53
+                          },
+                          "message": "TimeoutError: locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('yyyy-dd-mm').first()\u001b[22m\n\n\n   at ../src/pages/leave/assign-leave.page.ts:53\n\n  51 |     // loader to clear before trying to fill the date inputs.\n  52 |     await this.page.locator(OxdLocators.formLoader).waitFor({ state: 'hidden', timeout: 10000 }).catch(() => {});\n> 53 |     await this.fromDateInput.fill(fromDate);\n     |                              ^\n  54 |     await this.fromDateInput.press('Tab');\n  55 |     await this.toDateInput.fill(toDate);\n  56 |     await this.toDateInput.press('Tab');\n    at AssignLeavePage.assignLeave (/home/runner/work/hlperez-portfolio/hlperez-portfolio/src/pages/leave/assign-leave.page.ts:53:30)\n    at /home/runner/work/hlperez-portfolio/hlperez-portfolio/tests/e2e/leave/apply-leave.spec.ts:106:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2026-04-24T05:00:22.775Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/runner/work/hlperez-portfolio/hlperez-portfolio/test-results/leave-apply-leave-Apply-Le-f0246-ave-to-an-employee-as-admin-e2e-retry2/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/runner/work/hlperez-portfolio/hlperez-portfolio/test-results/leave-apply-leave-Apply-Le-f0246-ave-to-an-employee-as-admin-e2e-retry2/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/runner/work/hlperez-portfolio/hlperez-portfolio/test-results/leave-apply-leave-Apply-Le-f0246-ave-to-an-employee-as-admin-e2e-retry2/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/runner/work/hlperez-portfolio/hlperez-portfolio/src/pages/leave/assign-leave.page.ts",
+                        "column": 30,
+                        "line": 53
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "02892fd9128a10c5a526-5c7bc91c5da2a22f13de",
+              "file": "e2e/leave/apply-leave.spec.ts",
+              "line": 76,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "e2e/leave/leave-list.spec.ts",
+      "file": "e2e/leave/leave-list.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Leave List",
+          "file": "e2e/leave/leave-list.spec.ts",
+          "line": 12,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should display leave list after search",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7699,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-24T04:59:30.280Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5bcd1bbbd2e7dad1b07f-ab8145b500b2a4e1b06f",
+              "file": "e2e/leave/leave-list.spec.ts",
+              "line": 13,
+              "column": 7
+            },
+            {
+              "title": "should filter leave list by pending status",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4734,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-24T04:59:38.072Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5bcd1bbbd2e7dad1b07f-5256b5e79721ff925b09",
+              "file": "e2e/leave/leave-list.spec.ts",
+              "line": 27,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "e2e/pim/add-employee.spec.ts",
+      "file": "e2e/pim/add-employee.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Add Employee",
+          "file": "e2e/pim/add-employee.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should add a new employee with first and last name only",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 9918,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-24T04:59:42.832Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2300041b080293ed87c9-ca61ca97820a7bb03bac",
+              "file": "e2e/pim/add-employee.spec.ts",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "should add employee with login credentials enabled",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 9614,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-24T04:59:52.771Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2300041b080293ed87c9-2ea40208a667d8166c9e",
+              "file": "e2e/pim/add-employee.spec.ts",
+              "line": 23,
+              "column": 7
+            },
+            {
+              "title": "should delete an existing employee",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6113,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-24T05:00:02.403Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2300041b080293ed87c9-580dd267b580123d414b",
+              "file": "e2e/pim/add-employee.spec.ts",
+              "line": 42,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "e2e/pim/search-employee.spec.ts",
+      "file": "e2e/pim/search-employee.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Search Employee",
+          "file": "e2e/pim/search-employee.spec.ts",
+          "line": 6,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should find employee by exact name",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5203,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-24T05:00:10.540Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b65e212f0bc9d0db03a3-f0d64d210013e7189720",
+              "file": "e2e/pim/search-employee.spec.ts",
+              "line": 15,
+              "column": 7
+            },
+            {
+              "title": "should find employee by partial name",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3828,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-24T05:00:16.083Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b65e212f0bc9d0db03a3-8b8badbf13b106961643",
+              "file": "e2e/pim/search-employee.spec.ts",
+              "line": 23,
+              "column": 7
+            },
+            {
+              "title": "should show no results for non-existent name",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4427,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-24T05:00:19.927Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b65e212f0bc9d0db03a3-09121d4dbdefc23523e5",
+              "file": "e2e/pim/search-employee.spec.ts",
+              "line": 32,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "e2e/recruitment/add-candidate.spec.ts",
+      "file": "e2e/recruitment/add-candidate.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Add Candidate",
+          "file": "e2e/recruitment/add-candidate.spec.ts",
+          "line": 6,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should add a new candidate with required fields",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8988,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-24T05:00:24.754Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e786ebe46b91cc32486-cae7e1b0753b527478ee",
+              "file": "e2e/recruitment/add-candidate.spec.ts",
+              "line": 18,
+              "column": 7
+            },
+            {
+              "title": "should search candidates by name",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 10552,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-24T05:00:34.392Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e786ebe46b91cc32486-5888185c1a997e40cb4c",
+              "file": "e2e/recruitment/add-candidate.spec.ts",
+              "line": 44,
+              "column": 7
+            },
+            {
+              "title": "should shortlist a candidate",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 37998,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-24T05:00:44.957Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e786ebe46b91cc32486-29145ee601ac21a5386c",
+              "file": "e2e/recruitment/add-candidate.spec.ts",
+              "line": 54,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "e2e/recruitment/vacancies.spec.ts",
+      "file": "e2e/recruitment/vacancies.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Vacancies",
+          "file": "e2e/recruitment/vacancies.spec.ts",
+          "line": 6,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should create a new vacancy",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 24539,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-24T05:00:48.446Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f59e6f11aee74a27492b-eb7b340f80dfe6e8abfd",
+              "file": "e2e/recruitment/vacancies.spec.ts",
+              "line": 7,
+              "column": 7
+            },
+            {
+              "title": "should view vacancy details",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 9717,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-24T05:01:20.600Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f59e6f11aee74a27492b-736fa99a6fec88f8d5f8",
+              "file": "e2e/recruitment/vacancies.spec.ts",
+              "line": 58,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api/employees.api.spec.ts",
+      "file": "api/employees.api.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Employees API",
+          "file": "api/employees.api.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should return employee list with pagination",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1231,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-24T05:01:26.842Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3f6ebdfe08d20f9374bc-df5b5b626289fea6736e",
+              "file": "api/employees.api.spec.ts",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "should create a new employee via POST",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2304,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-24T05:01:30.884Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3f6ebdfe08d20f9374bc-205fcbb100d545daa39e",
+              "file": "api/employees.api.spec.ts",
+              "line": 15,
+              "column": 7
+            },
+            {
+              "title": "should retrieve a specific employee by empNumber",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4082,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-24T05:01:33.416Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3f6ebdfe08d20f9374bc-52d28a7414823d05f9c3",
+              "file": "api/employees.api.spec.ts",
+              "line": 25,
+              "column": 7
+            },
+            {
+              "title": "should return 404 for a non-existent employee",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2667,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-24T05:01:37.514Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3f6ebdfe08d20f9374bc-e888af96df3eaa641888",
+              "file": "api/employees.api.spec.ts",
+              "line": 36,
+              "column": 7
+            },
+            {
+              "title": "should delete an employee via DELETE",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 5112,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-24T05:01:38.781Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3f6ebdfe08d20f9374bc-84f1b276a0208385ad7d",
+              "file": "api/employees.api.spec.ts",
+              "line": 51,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api/leave.api.spec.ts",
+      "file": "api/leave.api.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Leave API",
+          "file": "api/leave.api.spec.ts",
+          "line": 7,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should retrieve leave types list",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1292,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-24T05:01:40.198Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ac85f0633618a35bcad7-be754afb271158bfb10a",
+              "file": "api/leave.api.spec.ts",
+              "line": 8,
+              "column": 7
+            },
+            {
+              "title": "should retrieve leave entitlements for an employee",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2885,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-24T05:01:41.505Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ac85f0633618a35bcad7-84a2e034d270e6a3551d",
+              "file": "api/leave.api.spec.ts",
+              "line": 18,
+              "column": 7
+            },
+            {
+              "title": "should create a leave request via POST",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2857,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-24T05:01:43.916Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ac85f0633618a35bcad7-b58a294df1ca44814fa9",
+              "file": "api/leave.api.spec.ts",
+              "line": 28,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api/recruitment.api.spec.ts",
+      "file": "api/recruitment.api.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Recruitment API",
+          "file": "api/recruitment.api.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should retrieve vacancies list",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1162,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-24T05:01:44.411Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3f73f8c4844f3d38b509-26397b584357974556b8",
+              "file": "api/recruitment.api.spec.ts",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "should create a vacancy via POST",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1789,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-24T05:01:45.591Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3f73f8c4844f3d38b509-cccb2e8a0380f0403a02",
+              "file": "api/recruitment.api.spec.ts",
+              "line": 14,
+              "column": 7
+            },
+            {
+              "title": "should add a candidate via POST",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2978,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-24T05:01:46.790Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3f73f8c4844f3d38b509-682d5ed88fcc27b5f32b",
+              "file": "api/recruitment.api.spec.ts",
+              "line": 24,
+              "column": 7
+            },
+            {
+              "title": "should delete a candidate via DELETE",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8192,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-24T05:01:47.398Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3f73f8c4844f3d38b509-1fde617a7e821ba1bc75",
+              "file": "api/recruitment.api.spec.ts",
+              "line": 37,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-04-24T04:58:43.331Z",
+    "duration": 192285.94400000002,
+    "expected": 32,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}
